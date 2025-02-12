@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --baseBack:rgb(31, 31, 31);
+}
+button{
+    transition: 300ms;
+    
+}
+button:Hover{
+    transform: translateY(-5px);
+    scale: 1.05;
+}
+body{
+    background-color: rgb(22, 22, 22);
+    margin: 20px 100px 20px 100px;
+    font-family: 'poppins';
+    color: #ffffff;
+    transition: 300ms;
+}
+h3,h4{
+    margin: 0;
+}
+header,footer,.baseSts{
+    border-radius: 5px;
+    background-color: var(--baseBack);
+}
+header{
+    background-color: var(--baseBack);
+    padding: 3px 30px 3px 30px;
+}
+header .content .topList{
+    color: white;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    font-weight: 500;
+    font-size: 20px;
+    
+}
+header .content .logo2{
+    width: 90px;
+    aspect-ratio: 1.7;
+}
+header .content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.subtitle{
+    color: white;
+
+}
+.fic img{
+    aspect-ratio: 1;
+    width: 350px;
+}
+.fic{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.ficT{
+    display: flex;
+    flex-direction: column;
+    
+    align-items: left;
+    justify-content: space-around;
+}
+.ficT h3{
+ font-size: 22px;   
+}
+
+.ficT h4{
+    font-size: 30px;
+  font-weight: bold;
+  background-image: linear-gradient(to right, #7ff3ff, #3388b9);
+  -webkit-background-clip: text; 
+  color: transparent; 
+}
+.fic button{
+    font-family: 'poppins';
+    font-weight: 600;
+    margin-top: 10px;
+    color:var(--baseBack);
+    font-size: 25px;
+    outline: none;
+    background: linear-gradient(to right, rgb(0, 182, 202), #3388b9);
+    border: 0px;
+    border-radius: 10px;
+}

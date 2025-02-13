@@ -134,6 +134,7 @@ header .content {
 }
 .sobreMim .texto h1{
     font-size: 30px;
+    font-weight: 600;
 }
 
 .sobreMim .texto{
@@ -142,4 +143,5 @@ header .content {
 }
 .sobreMim .texto p{
     font-size: 17px;
+    margin-left: 20px;
 }

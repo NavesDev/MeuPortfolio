@@ -3,13 +3,18 @@
 :root{
     --baseBack:rgb(31, 31, 31);
 }
-button{
+.social , button{
     transition: 300ms;
-    
+    cursor: pointer;
 }
-button:Hover{
-    transform: translateY(-5px);
+.social:hover, button:Hover{
+    transform: translateY(-3px);
     scale: 1.05;
+}
+.sec{
+    display: flex;
+    flex-direction: column;
+    gap:30px;
 }
 body{
     background-color: rgb(22, 22, 22);
@@ -17,9 +22,15 @@ body{
     font-family: 'poppins';
     color: #ffffff;
     transition: 300ms;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
-h3,h4{
+p,h1,h2,h3,h4{
     margin: 0;
+}
+a{
+    color: #80f2ff;
 }
 header,footer,.baseSts{
     border-radius: 5px;
@@ -54,7 +65,7 @@ header .content {
 }
 .fic img{
     aspect-ratio: 1;
-    width: 350px;
+    width: 250px;
 }
 .fic{
     display: flex;
@@ -66,7 +77,8 @@ header .content {
     flex-direction: column;
     
     align-items: left;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 10px;
 }
 .ficT h3{
  font-size: 22px;   
@@ -86,7 +98,48 @@ header .content {
     color:var(--baseBack);
     font-size: 25px;
     outline: none;
-    background: linear-gradient(to right, rgb(0, 182, 202), #3388b9);
+    background: linear-gradient(to right, #41d0e0, #3388b9);
     border: 0px;
     border-radius: 10px;
+
+}
+.fic button:hover{
+    background: linear-gradient(to right, #00cae0, #28719b);
+}
+.social{
+    width: 30px;
+    aspect-ratio: 1;
+    height: 30px;
+    max-width: 30px;
+    max-height: 30px;
+    object-fit: contain;
+    cursor: pointer;
+}
+.socialHolder{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-direction: row;
+
+}
+.ficT .as{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+}
+
+.sobreMim {
+    padding: 25px;
+}
+.sobreMim .texto h1{
+    font-size: 30px;
+}
+
+.sobreMim .texto{
+    border-left: 2px white solid;
+    padding: 10px;
+}
+.sobreMim .texto p{
+    font-size: 17px;
 }

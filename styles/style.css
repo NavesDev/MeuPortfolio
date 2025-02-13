@@ -76,7 +76,8 @@ header .content {
     display: flex;
     flex-direction: column;
     
-    align-items: left;
+    align-items: center;
+    text-align: center;
     justify-content: center;
     gap: 10px;
 }
@@ -144,4 +145,24 @@ header .content {
 .sobreMim .texto p{
     font-size: 17px;
     margin-left: 20px;
+}
+
+::-webkit-scrollbar{
+    width: 8px;
+}
+::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb{
+    width: 10px;
+    background: rgb(92, 92, 92);
+    transition: 300ms;
+    border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background:rgb(61, 61, 61);
+}
+::-webkit-scrollbar-thumb:active{
+    background: rgb(48, 48, 48);
 }

@@ -7,6 +7,7 @@
     --textColor:white;
     --highlightColor:#80f2ff;
     --subtitleColor:white;
+    --scrollBarColor:rgb(92, 92, 92);
 }
 
 html{
@@ -20,6 +21,7 @@ html.lightMode{
     --textColor:rgb(0, 0, 0);
     --highlightColor:#0032bd;
     --subtitleColor:rgb(255, 255, 255);
+    --scrollBarColor:rgb(136, 136, 136);
 }
 .social , button{
     transition: 300ms;
@@ -181,7 +183,7 @@ header .content {
 
 ::-webkit-scrollbar-thumb{
     width: 10px;
-    background: rgb(92, 92, 92);
+    background: var(--scrollBarColor);
     transition: 300ms;
     border-radius: 2px;
 }
@@ -262,14 +264,15 @@ header .content {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
     position: relative;
 }
 
 #timeline::after{
     content: "";
-    width: 50%;
+    width: 750px;
     height: 4px;
+    border-radius: 10px;
     position: absolute;
     background-color: rgb(0, 164, 214);
     top: 40px;
@@ -286,10 +289,20 @@ header .content {
     width: 250px;
 }
 #timeline div label::after{
+    content: "";
+    width: 65px;
+    height: 65px;
+    position: absolute;
+    border-radius: 50%;
+    border: 3px white solid;
+    top:50%;
+    left: 50%;
     
+    transform: translate(-50%,-50%);
 }
 #timeline div label{
     width: 80px;
+    position: relative;
     height: 80px;
     text-align: center;
     align-items: center;
@@ -299,4 +312,48 @@ header .content {
     border-radius: 50%;
     font-size: auto;
     z-index: 1;
+}
+
+@media(max-width: 768px){
+    html,body{
+        margin: 20px 10px 20px 10px;
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+    .fic{
+        flex-direction:column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+    #timeline{
+        flex-direction: column;
+        align-items: center;
+    }
+    #timeline::after{
+        visibility: hidden;
+    }
+    .baseSts h1{
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .content{
+      
+    }
+    .topList{
+
+        visibility:hidden;
+       
+    }
+    header{
+        position: sticky;
+        top: 0;
+        
+        z-index: 1000;
+    }
+    #goToZone{
+        visibility: hidden;
+    }
+    .topList{
+        flex-direction: column;
+    }
 }

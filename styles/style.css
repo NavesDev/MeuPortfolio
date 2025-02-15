@@ -339,10 +339,14 @@ header .content {
     .content{
       
     }
-    .topList{
+    .topList p{
 
-        visibility:hidden;
-       
+        font-size: 0;
+        width: 0;
+        visibility: hidden;
+    }
+    .topList{
+        flex-direction: row;
     }
     header{
         position: sticky;

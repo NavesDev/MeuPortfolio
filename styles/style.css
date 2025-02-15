@@ -2,6 +2,24 @@
 
 :root{
     --baseBack:rgb(31, 31, 31);
+    --underBack: rgb(22,22,22);
+    --baseLight:1;
+    --textColor:white;
+    --highlightColor:#80f2ff;
+    --subtitleColor:white;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+html.lightMode{
+    --baseBack:rgb(255, 255, 255);
+    --underBack: rgb(129, 194, 255);
+    --baseLight:0;
+    --textColor:rgb(0, 0, 0);
+    --highlightColor:#0032bd;
+    --subtitleColor:rgb(255, 255, 255);
 }
 .social , button{
     transition: 300ms;
@@ -17,10 +35,10 @@
     gap:30px;
 }
 body{
-    background-color: rgb(22, 22, 22);
+    background-color: var(--underBack);
     margin: 20px 100px 20px 100px;
     font-family: 'poppins';
-    color: #ffffff;
+    color: var(--textColor);
     transition: 300ms;
     display: flex;
     flex-direction: column;
@@ -30,7 +48,7 @@ p,h1,h2,h3,h4{
     margin: 0;
 }
 a{
-    color: #80f2ff;
+    color: var(--highlightColor);
 }
 header,footer,.baseSts{
     border-radius: 5px;
@@ -41,16 +59,17 @@ header{
     padding: 3px 30px 3px 30px;
 }
 header .content .topList{
-    color: white;
+    color: var(--textColor);
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 20px;
     font-weight: 500;
     font-size: 20px;
     
 }
 header .content .logo2{
-    width: 90px;
+    width: 100px;
     aspect-ratio: 1.7;
 }
 header .content {
@@ -60,9 +79,10 @@ header .content {
     align-items: center;
 }
 .subtitle{
-    color: white;
+    color: var(--subtitleColor);
 
 }
+
 .fic img{
     aspect-ratio: 1;
     width: 250px;
@@ -88,7 +108,7 @@ header .content {
 .ficT h4{
     font-size: 30px;
   font-weight: bold;
-  background-image: linear-gradient(to right, #7ff3ff, #3388b9);
+  background-image: linear-gradient(to right, #20b3c4, #3388b9);
   -webkit-background-clip: text; 
   color: transparent; 
 }
@@ -99,13 +119,13 @@ header .content {
     color:var(--baseBack);
     font-size: 25px;
     outline: none;
-    background: linear-gradient(to right, #41d0e0, #3388b9);
+    background: linear-gradient(to right, #20b3c4, #3388b9);
     border: 0px;
     border-radius: 10px;
 
 }
 .fic button:hover{
-    background: linear-gradient(to right, #00cae0, #28719b);
+    background: linear-gradient(to right, #009eaf, #28719b);
 }
 .social{
     width: 30px;
@@ -115,6 +135,7 @@ header .content {
     max-height: 30px;
     object-fit: contain;
     cursor: pointer;
+    
 }
 .socialHolder{
     display: flex;
@@ -135,11 +156,15 @@ header .content {
 }
 .sobreMim .texto h1{
     font-size: 30px;
-    font-weight: 600;
+    font-weight: 500;
+}
+.baseSts h1{
+    font-size: 30px;
+    font-weight: 500;
 }
 
 .sobreMim .texto{
-    border-left: 2px white solid;
+    border-left: 2px var(--textColor) solid;
     padding: 10px;
 }
 .sobreMim .texto p{
@@ -165,4 +190,113 @@ header .content {
 }
 ::-webkit-scrollbar-thumb:active{
     background: rgb(48, 48, 48);
+}
+
+.topList p {
+    cursor: pointer;
+}
+
+.timeline{
+    padding: 20px;
+
+}
+.topList .themeButton{
+    cursor: pointer;
+    width: 30px;
+    aspect-ratio: 1;
+    filter: brightness(var(--baseLight));
+}
+.tbh{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 30px;
+    overflow: hidden;
+    
+}
+ 
+.tbh #themeDiv{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: -0px;
+    transition: 300ms;
+}
+
+#goToButton{
+    width: 50px;
+    aspect-ratio: 1;
+    position: fixed;
+    bottom: 20px;
+    left:50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: 300ms;
+    filter: brightness(var(--baseLight));
+    cursor: pointer;
+}
+
+#goToZone{
+    width: 100vw;
+    height: 7vw;
+    min-height: 70px;
+    position: fixed;
+
+    bottom: 0px;
+    left:50%;
+    transform: translateX(-50%);
+    pointer-events:all;
+    background: linear-gradient(to top, rgb(58, 58, 58),rgba(0, 0, 0, 0));
+    opacity: 0.001;
+    transition:300ms;
+}
+
+#goToZone:Hover{
+    opacity: 1;
+}
+#goToZone:hover img{
+    opacity: 0.7;
+}
+
+#timeline{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+}
+
+#timeline::after{
+    content: "";
+    width: 50%;
+    height: 4px;
+    position: absolute;
+    background-color: rgb(0, 164, 214);
+    top: 40px;
+    z-index: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#timeline div{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    width: 250px;
+}
+#timeline div label::after{
+    
+}
+#timeline div label{
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    box-sizing: border-box;
+    background-color: rgb(0, 164, 214);
+    border-radius: 50%;
+    font-size: auto;
+    z-index: 1;
 }

@@ -8,6 +8,7 @@
     --highlightColor:#80f2ff;
     --subtitleColor:white;
     --scrollBarColor:rgb(92, 92, 92);
+    --secondTextColor:rgb(172, 172, 172);
 }
 
 html{
@@ -22,6 +23,7 @@ html.lightMode{
     --highlightColor:#0032bd;
     --subtitleColor:rgb(255, 255, 255);
     --scrollBarColor:rgb(136, 136, 136);
+    --secondTextColor:rgb(77, 77, 77);
 }
 .social , button{
     transition: 300ms;
@@ -55,10 +57,13 @@ a{
 header,footer,.baseSts{
     border-radius: 5px;
     background-color: var(--baseBack);
+    display: flex;
+    flex-direction: column;
 }
 header{
     background-color: var(--baseBack);
     padding: 3px 30px 3px 30px;
+    margin-bottom: 15px;
 }
 header .content .topList{
     color: var(--textColor);
@@ -107,6 +112,32 @@ header .content {
  font-size: 22px;   
 }
 
+.topList p::after{
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    border-radius: 5px;
+    transform: translateX(-50%);
+    height: 2px;
+    width: 0;
+    background: linear-gradient(to right, #20b3c4, #3388b9);
+    opacity: 0;
+    transition:ease-in-out 300ms;
+}
+.topList p:hover::after{
+    opacity: 1;
+    width: 100%;
+}
+.topList p:hover{
+    background-image: linear-gradient(to right, #20b3c4, #3388b9);;
+    -webkit-background-clip: text; 
+    color: transparent; 
+}
+.topList p{
+    position: relative;
+}
+
 .ficT h4{
     font-size: 30px;
   font-weight: bold;
@@ -125,6 +156,15 @@ header .content {
     border: 0px;
     border-radius: 10px;
 
+}
+
+.timeline p{
+    color:var(--secondTextColor);
+    text-decoration:none;
+}
+.timeElement p{
+    color: var(--textColor);
+    text-decoration: none;
 }
 .fic button:hover{
     background: linear-gradient(to right, #009eaf, #28719b);
@@ -251,6 +291,7 @@ header .content {
     background: linear-gradient(to top, rgb(58, 58, 58),rgba(0, 0, 0, 0));
     opacity: 0.001;
     transition:300ms;
+    z-index: 100;
 }
 
 #goToZone:Hover{
@@ -264,8 +305,9 @@ header .content {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 30px;
+    gap: 75px;
     position: relative;
+    margin-top: 20px;
 }
 
 #timeline::after{
@@ -278,29 +320,35 @@ header .content {
     top: 40px;
     z-index: 0;
     left: 50%;
+    max-width: 80%;
     transform: translateX(-50%);
 }
-#timeline div{
+#timeline .timeElement{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     text-align: center;
-    width: 250px;
+    display: relative;
+    width: 200px;
 }
-#timeline div label::after{
+#timeline .timeElement label::after{
     content: "";
     width: 65px;
     height: 65px;
     position: absolute;
     border-radius: 50%;
-    border: 3px white solid;
+    border: 3px rgba(255, 255, 255, 0.671) solid;
     top:50%;
     left: 50%;
-    
     transform: translate(-50%,-50%);
 }
-#timeline div label{
+
+#timeline .timeElement:hover label::after{
+    border-color: white;
+}
+
+#timeline .timeElement label{
     width: 80px;
     position: relative;
     height: 80px;
@@ -312,13 +360,97 @@ header .content {
     border-radius: 50%;
     font-size: auto;
     z-index: 1;
+    color: white;
+    font-weight: 600;
 }
+.timeElement label:hover ~ .hiddenData{
+    visibility: visible;
+    opacity: 1;
+}
+
+.subData{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+justify-content: left;
+    align-items: center;
+}
+.subData img{
+    width: 20px;
+    height: 20px;
+    aspect-ratio: 1;
+    filter: brightness(var(--baseLight));
+}
+.hiddenData:hover{
+    opacity: 1;
+    visibility: visible;
+}
+.hiddenData{
+    visibility: visible;
+    opacity: 0;
+    transition: 300ms;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    z-index: 2;
+    top: -40px;
+    background-color: var(--baseBack);
+    width: max-content;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 5px rgba(61, 61, 61, 0.301);
+    justify-content: center;
+    align-items: left;
+    
+    gap: 10px;
+    padding: 5px;
+}
+
+footer{
+    margin-bottom: 70px;
+}
+
+.skills{
+    padding: 10px;
+    gap: 20px;
+}
+.skills h1{
+    text-align: center;
+}
+.langs{
+    display: flex;
+    flex-direction: row;
+    gap: 35px;
+    justify-content: center;
+
+    align-items: center;
+    flex-wrap: wrap;
+}
+.langs .cont{
+    position: relative;
+    width: 60px;
+    height: 60px;
+}
+.langs img:hover + .hiddenData{
+    opacity: 1;
+    visibility: visible;
+}
+.langs .hiddenData{
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    visibility: hidden;
+}
+
+.langs img{width: 60px;height: 60px;}
 
 @media(max-width: 768px){
     html,body{
         margin: 20px 10px 20px 10px;
         max-width: 100vw;
         overflow-x: hidden;
+    }
+    .sobreMim .texto p{
+        font-size: 16px;
     }
     .fic{
         flex-direction:column-reverse;
@@ -328,6 +460,14 @@ header .content {
     #timeline{
         flex-direction: column;
         align-items: center;
+
+        gap: 20px;
+    }
+    .timeElement{
+        position: relative;
+    }
+    .hiddenData{
+
     }
     #timeline::after{
         visibility: hidden;
@@ -340,19 +480,12 @@ header .content {
       
     }
     .topList p{
-
         font-size: 0;
         width: 0;
         visibility: hidden;
     }
     .topList{
         flex-direction: row;
-    }
-    header{
-        position: sticky;
-        top: 0;
-        
-        z-index: 1000;
     }
     #goToZone{
         visibility: hidden;

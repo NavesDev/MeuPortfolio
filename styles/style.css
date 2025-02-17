@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+underLineEff{
+    text-decoration: underline;
+    cursor: pointer;
+}
 :root{
     --baseBack:rgb(31, 31, 31);
     --underBack: rgb(22,22,22);
@@ -13,6 +17,49 @@
 
 html{
     scroll-behavior: smooth;
+}
+
+.beta{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    font-weight: 600;
+    color: var(--textColor);
+}
+@keyframes vaiEvolta{
+    0%{
+        transform: translateX(calc(100%*9));
+    }
+    50%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(calc(100%*9));
+    }
+}
+
+.baseSts.beta h1{
+    font-weight: 600;
+}
+.beta h1{
+    
+    position: relative;
+    background-image: linear-gradient(to right, #20b3c4, #3388b9);
+    -webkit-background-clip: text; 
+    color: transparent; 
+  
+}
+.beta h1::after{
+    background: linear-gradient(to right, #20b3c4, #3388b9);
+    content: '';
+    height: 6px;
+    position: absolute;
+    bottom: -5px;
+    animation: vaiEvolta 5s ease-in-out 0s infinite;
+    left: 0;
+    width:10%;
+    border-radius: 2px;
+   
 }
 
 html.lightMode{
@@ -93,6 +140,7 @@ header .content {
 .fic img{
     aspect-ratio: 1;
     width: 250px;
+    
 }
 .fic{
     display: flex;
@@ -442,6 +490,65 @@ footer{
 }
 
 .langs img{width: 60px;height: 60px;}
+.do{
+    padding: 20px;
+}
+.do ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.do ul li{
+    font-size: 18px;
+    font-weight: 400;
+
+}
+.do .hiddenFaq{
+    position: relative;
+    display: inline-block;
+}
+
+.do .hiddenFaq img{
+    width: 16px;
+    height:16px;
+    vertical-align: middle;
+    
+  
+}
+
+.hiddenFaq img{
+    filter: brightness(var(--baseLight));
+    cursor: pointer;
+}
+
+.hiddenFaq div p{
+    font-size: 16px;
+    font-weight: 300;
+}
+.hiddenFaq div{
+    visibility: hidden;
+    position: absolute;
+    background-color: var(--baseBack);
+    border-radius: 3px;
+    box-shadow: 0px 0px 5px 5px rgba(61, 61, 61, 0.301);
+    max-width:250px;
+    min-width: 170px;
+    max-height: 600px;
+    padding: 4px;
+    left: 20px;
+    top: 0px;
+    opacity: 0;
+    transition: 300ms;
+}
+.hiddenFaq img:hover + div,
+.hiddenFaq div:hover{
+    visibility: visible;
+    opacity: 1;
+}
+underLineEff:hover + .hiddenFaq div{
+    visibility: visible;
+    opacity: 1;
+} 
 
 @media(max-width: 768px){
     html,body{

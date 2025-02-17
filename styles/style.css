@@ -76,7 +76,7 @@ html.lightMode{
     transition: 300ms;
     cursor: pointer;
 }
-.social:hover, button:Hover{
+.social:hover:not(.later), button:Hover{
     transform: translateY(-3px);
     scale: 1.05;
 }
@@ -159,7 +159,9 @@ header .content {
 .ficT h3{
  font-size: 22px;   
 }
-
+.later.social{
+    filter: brightness(0.3) saturate(0);
+}
 .topList p::after{
     content: "";
     position: absolute;
@@ -225,7 +227,9 @@ header .content {
     max-height: 30px;
     object-fit: contain;
     cursor: pointer;
-    
+}
+.social.later{
+    cursor: default;
 }
 .socialHolder{
     display: flex;
@@ -261,6 +265,7 @@ header .content {
     font-size: 17px;
     margin-left: 20px;
 }
+
 
 ::-webkit-scrollbar{
     width: 8px;
@@ -420,7 +425,7 @@ header .content {
     display: flex;
     flex-direction: row;
     gap: 5px;
-justify-content: left;
+    justify-content: left;
     align-items: center;
 }
 .subData img{
@@ -434,7 +439,7 @@ justify-content: left;
     visibility: visible;
 }
 .hiddenData{
-    visibility: visible;
+    visibility: hidden;
     opacity: 0;
     transition: 300ms;
     display: flex;
@@ -499,7 +504,7 @@ footer{
     gap: 10px;
 }
 .do ul li{
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
 
 }
@@ -545,6 +550,13 @@ footer{
     visibility: visible;
     opacity: 1;
 }
+#talkToMe{
+    width: 100%;
+    align-self: center;
+}
+#talkToMe button{
+    width: 100%;
+}
 underLineEff:hover + .hiddenFaq div{
     visibility: visible;
     opacity: 1;
@@ -558,6 +570,10 @@ underLineEff:hover + .hiddenFaq div{
     }
     .sobreMim .texto p{
         font-size: 16px;
+    }
+    .do ul li{
+        font-size: 16px;
+        font-weight: 300;
     }
     .fic{
         flex-direction:column-reverse;

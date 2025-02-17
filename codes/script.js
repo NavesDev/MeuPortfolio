@@ -10,6 +10,14 @@ function LightMode(){
     document.getElementById("firstLogo").src = "sources/lightLogo.png"
 }
 
+function goToObj(event){
+    const target = event.target
+    obj = document.getElementById(target.id+"sec")
+    obj.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    })
+}
 function DarkMode(){
     localStorage.setItem("ColorMode","dark")
     htmlE.classList.remove("lightMode")
@@ -41,5 +49,7 @@ function colorModeChange(){
 document.getElementById("themeDiv").addEventListener("click",colorModeChange)
 
 //Go To
-
+document.getElementById("contactB").addEventListener("click",goToObj)
+document.getElementById("skillsB").addEventListener("click",goToObj)
+document.getElementById("projB").addEventListener("click",goToObj)
 document.getElementById("goToButton").addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"})})

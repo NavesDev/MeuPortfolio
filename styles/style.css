@@ -541,6 +541,7 @@ footer{
     max-height: 600px;
     padding: 4px;
     left: 20px;
+    right: 20px;
     top: 0px;
     opacity: 0;
     transition: 300ms;
@@ -563,6 +564,9 @@ underLineEff:hover + .hiddenFaq div{
 } 
 
 @media(max-width: 768px){
+    .fic{
+        padding: 15px 15px 0px 15px;
+    }
     html,body{
         margin: 20px 10px 20px 10px;
         max-width: 100vw;

@@ -54,7 +54,7 @@ html{
     content: '';
     height: 6px;
     position: absolute;
-    bottom: -5px;
+    bottom: 0px;
     animation: vaiEvolta 5s ease-in-out 0s infinite;
     left: 0;
     width:10%;

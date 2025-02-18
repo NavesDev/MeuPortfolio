@@ -1,6 +1,9 @@
 var colorMode
 const htmlE = document.documentElement
-
+const emailLinks = {
+    mobile : "mailto:davinaves.2006@gmail.com?subject=Quero saber mais dos seus serviços&body=Tenho interesse no seu perfil e gostaria de...",
+    pc : "https://mail.google.com/mail/?view=cm&fs=1&to=davinaves.2006@gmail.com&su=Quero%20saber%20mais%20dos%20seus%20servi%C3%A7os&body=Tenho%20interesse%20no%20seu%20perfil%20e%20gostaria%20de..."
+}
 //theme code
 
 function LightMode(){
@@ -46,8 +49,18 @@ function colorModeChange(){
     }
 }
 
+function updateWindow(){
+    if(window.innerWidth<1000){
+        document.getElementById("talkToMe").href=emailLinks.mobile
+    } else{
+        document.getElementById("talkToMe").href=emailLinks.pc
+    }
+}
+updateWindow()
+
 document.getElementById("themeDiv").addEventListener("click",colorModeChange)
 
+window.addEventListener("resize",updateWindow)
 //Go To
 document.getElementById("contactB").addEventListener("click",goToObj)
 document.getElementById("skillsB").addEventListener("click",goToObj)

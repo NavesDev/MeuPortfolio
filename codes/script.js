@@ -65,10 +65,10 @@ function langChange(ev){
     let pageName = path.split("/").pop();
     if(langb.value=="en" && !pageName.includes("en-us")){
         localStorage.setItem("favLang","en-us")
-        window.location.href = "/en-us" 
+        window.location.href = "/MeuPortifolio/pt-br"
     } else if(langb.value=="pt" && !pageName.includes("pt-br")){
         localStorage.setItem("favLang","pt-br")
-        window.location.href = "/pt-br" 
+        window.location.href = "/MeuPortifolio/pt-br" 
     }
 }
 document.getElementById("themeDiv").addEventListener("click",colorModeChange)

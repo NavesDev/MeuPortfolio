@@ -10,8 +10,8 @@ if(!favLang){
 
 setTimeout(()=>{
     if(favLang == "pt-br"){
-        window.location.href="MeuPortifolio/pt-br"
+        window.location.href="/MeuPortifolio/pt-br"
     } else {
-        window.location.href = "MeuPortifolio/en-us"
+        window.location.href = "/MeuPortifolio/en-us"
     }
 },1500)

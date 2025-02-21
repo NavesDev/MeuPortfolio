@@ -10,7 +10,7 @@ function LightMode(){
     localStorage.setItem("ColorMode","light")
     htmlE.classList.add("lightMode")
     document.getElementById("themeDiv").style.marginLeft="-30px"
-    document.getElementById("firstLogo").src = "/sources/lightLogo.png"
+    document.getElementById("firstLogo").src = "../sources/lightLogo.png"
 }
 
 function goToObj(event){
@@ -25,7 +25,7 @@ function DarkMode(){
     localStorage.setItem("ColorMode","dark")
     htmlE.classList.remove("lightMode")
     document.getElementById("themeDiv").style.marginLeft="0px"
-    document.getElementById("firstLogo").src = "/sources/darkLogo.png"
+    document.getElementById("firstLogo").src = "../sources/darkLogo.png"
 }
 
 if(localStorage.getItem("ColorMode")){

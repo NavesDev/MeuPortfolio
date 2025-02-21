@@ -65,7 +65,7 @@ function langChange(ev){
     let pageName = path.split("/").pop();
     if(langb.value=="en" && !pageName.includes("en-us")){
         localStorage.setItem("favLang","en-us")
-        window.location.href = "/MeuPortifolio/pt-br"
+        window.location.href = "/MeuPortifolio/en-us"
     } else if(langb.value=="pt" && !pageName.includes("pt-br")){
         localStorage.setItem("favLang","pt-br")
         window.location.href = "/MeuPortifolio/pt-br" 

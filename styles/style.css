@@ -162,6 +162,19 @@ header .content {
 .later.social{
     filter: brightness(0.3) saturate(0);
 }
+.topList select{
+    background-color: transparent;
+    color: var(--textColor);
+    font-family: 'poppins';
+    border: 0;
+    font-size: 16px;
+}
+.topList select:focus{
+    outline: none;
+}
+.topList select option{
+    background-color: var(--baseBack);
+}
 .topList p::after{
     content: "";
     position: absolute;
@@ -609,7 +622,7 @@ underLineEff:hover + .hiddenFaq div{
     .topList p{
         font-size: 0;
         width: 0;
-        visibility: hidden;
+        display: none;
     }
     .topList{
         flex-direction: row;

@@ -10,7 +10,7 @@ function LightMode(){
     localStorage.setItem("ColorMode","light")
     htmlE.classList.add("lightMode")
     document.getElementById("themeDiv").style.marginLeft="-30px"
-    document.getElementById("firstLogo").src = "sources/lightLogo.png"
+    document.getElementById("firstLogo").src = "/sources/lightLogo.png"
 }
 
 function goToObj(event){
@@ -25,7 +25,7 @@ function DarkMode(){
     localStorage.setItem("ColorMode","dark")
     htmlE.classList.remove("lightMode")
     document.getElementById("themeDiv").style.marginLeft="0px"
-    document.getElementById("firstLogo").src = "sources/darkLogo.png"
+    document.getElementById("firstLogo").src = "/sources/darkLogo.png"
 }
 
 if(localStorage.getItem("ColorMode")){
@@ -56,9 +56,24 @@ function updateWindow(){
         document.getElementById("talkToMe").href=emailLinks.pc
     }
 }
+
 updateWindow()
 
+function langChange(ev){
+    const langb=ev.target
+    let path = window.location.pathname;
+    let pageName = path.split("/").pop();
+    if(langb.value=="en" && !pageName.includes("en-us")){
+        localStorage.setItem("favLang","en-us")
+        window.location.href = "/en-us" 
+    } else if(langb.value=="pt" && !pageName.includes("pt-br")){
+        localStorage.setItem("favLang","pt-br")
+        window.location.href = "/pt-br" 
+    }
+}
 document.getElementById("themeDiv").addEventListener("click",colorModeChange)
+
+document.getElementById("lang-b").addEventListener("change",langChange)
 
 window.addEventListener("resize",updateWindow)
 //Go To

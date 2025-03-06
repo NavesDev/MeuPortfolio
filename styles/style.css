@@ -19,6 +19,21 @@ html{
     scroll-behavior: smooth;
 }
 
+@keyframes summon{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.sec {
+    opacity: 1;
+    animation: summon 1s ease-in-out 0s;
+    transition: 1s;
+}
+
 .beta{
     display: flex;
     align-items: center;

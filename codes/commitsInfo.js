@@ -31,7 +31,7 @@ export async function linkCache(element) {
    
         const repName = element.id
         const cache = await getCache(repName)
-        console.log(cache)
+       
         if(cache.commits){
             const stats=commitToStats(cache.commits)
             for (let i in stats){
@@ -104,7 +104,7 @@ export async function essentialCaches(reps) {
                 }
             }
             localStorage.setItem("essentialCaches",JSON.stringify(cache))
-            console.log("Cache old")
+   
         }
         
     }else{
@@ -122,7 +122,7 @@ export async function essentialCaches(reps) {
         }
 
         localStorage.setItem("essentialCaches",JSON.stringify(cache))
-        console.log("Nenhum cache encontrado")
+   
     }
     return cache
 }

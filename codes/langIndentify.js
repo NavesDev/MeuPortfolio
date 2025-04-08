@@ -1,17 +1,21 @@
 let favLang = localStorage.getItem("favLang")
 const baseLang = "en-us"
+const supportedLangs = ['pt-br','en-us']
+const baseUrl = "/MeuPortifolio/"
+
 
 if(!favLang){
-    favLang =  navigator.language.toLowerCase;
+    favLang =  navigator.language.toLowerCase();
     if(!favLang){
         favLang = baseLang
     }
 }
 
 setTimeout(()=>{
-    if(favLang == "pt-br"){
-        window.location.href="/MeuPortifolio/pt-br"
+    if(supportedLangs.includes(favLang)){
+        window.location.href=`${baseUrl}${favLang}`
     } else {
-        window.location.href = "/MeuPortifolio/en-us"
+        window.location.href = `${baseUrl}${baseLang}`
+        localStorage.setItem("favLang",baseLang)
     }
 },1500)

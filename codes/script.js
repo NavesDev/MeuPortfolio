@@ -1,4 +1,5 @@
 import { linkCache,essentialCaches,eCache } from "./commitsInfo.js"
+import { newAccess,getWebsitesInfo} from "./access-counter.js"
 
 var colorMode
 const htmlE = document.documentElement
@@ -110,6 +111,7 @@ function linkWith(url){
 document.querySelectorAll("#repButton").forEach( (element)=>{
     element.addEventListener('click',linkWith(gLinks.portGit))
 })
+
 function goToObj(event){
     const target = event.target
     const obj = document.getElementById(target.id+"sec")
@@ -185,6 +187,8 @@ async function basics(){
         langHolder = obj.base.querySelector(".projLangs")
         mecache.linkLangs(obj.repName,langHolder,langHolder.querySelector(".template"))
     }
+    console.log(await newAccess("MeuPortfolio"))
+
    
 } 
 basics()

@@ -1,8 +1,12 @@
 const apiURL = "https://navesdev-api.vercel.app"
+const defHeader = {
+    method:"GET",
+    credentials:"include"
+}
 
 export async function getWebsiteInfo(name){
     if(!inCooldown(name)){
-        let req = await fetch(`${apiURL}/websites/${name}`);
+        let req = await fetch(`${apiURL}/websites/${name}`,defHeader);
         req = await req.json();
         addCooldown(name);
         if(req.response){
@@ -18,7 +22,7 @@ export async function getWebsiteInfo(name){
 
 export async function getWebsitesInfo(){
     if(!inCooldown("1all1")){
-        let req = await fetch(`${apiURL}/websites`);
+        let req = await fetch(`${apiURL}/websites`,defHeader);
         req = await req.json();
         addCooldown("1all1");
         if(req.response){
@@ -33,7 +37,7 @@ export async function getWebsitesInfo(){
 
 export async function newAccess(name){
     if(!inCooldown(`${name}-access`)){
-        let req = await fetch(`${apiURL}/websites/${name}/newaccess`);
+        let req = await fetch(`${apiURL}/websites/${name}/newaccess`,defHeader);
         req = await req.json();
         addCooldown(`${name}-access`,60*3);
         if(req.status){

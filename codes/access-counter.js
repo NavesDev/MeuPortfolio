@@ -39,6 +39,7 @@ export async function newAccess(name){
     if(!inCooldown(`${name}-access`)){
         let req = await fetch(`${apiURL}/websites/${name}/newaccess`,defHeader);
         req = await req.json();
+        console.log(req)
         addCooldown(`${name}-access`,60*3);
         if(req.status){
             return true;

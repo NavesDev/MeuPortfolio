@@ -1,7 +1,7 @@
 let favLang = localStorage.getItem("favLang")
 const baseLang = "en-us"
 const supportedLangs = ['pt-br','en-us']
-const baseUrl = "/MeuPortifolio/"
+const baseUrl = "/MeuPortfolio/"
 
 
 if(!favLang){

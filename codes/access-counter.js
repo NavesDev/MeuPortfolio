@@ -1,51 +1,76 @@
 const apiURL = "https://navesdev-api.vercel.app"
 const defHeader = {
     method:"GET",
-    credentials:"include"
 }
 
 export async function getWebsiteInfo(name){
+    const oldWebsiteInfo = JSON.parse(localStorage.getItem(`AC-${name}Infos`))
     if(!inCooldown(name)){
         let req = await fetch(`${apiURL}/websites/${name}`,defHeader);
+        if(!req.ok){
+            if(req.status==429){
+                const errorM = response.json();
+                addCooldown(name,errorM.retryAfter)
+            } else {
+                addCooldown(name)
+            }
+            return oldWebsiteInfo
+        }
         req = await req.json();
         addCooldown(name);
         if(req.response){
             return req.response;
         } else {
-            return null;
+            return oldWebsiteInfo;
         }
     } else{
-        return null;
+        return oldWebsiteInfo;
     }    
     
 }
 
 export async function getWebsitesInfo(){
+    const oldWebsitesInfos = JSON.parse(localStorage.getItem("AC-WebsitesInfos"))
     if(!inCooldown("1all1")){
-        let req = await fetch(`${apiURL}/websites`,defHeader);
+        let req = await fetch(`${apiURL}/websites`,defHeader); 
+        if(!req.ok){
+            if(req.status==429){
+                const errorM = response.json();
+                addCooldown("1all1",errorM.retryAfter)
+            } else {
+                addCooldown("1all1")
+            }
+            return oldWebsitesInfos;
+        }
         req = await req.json();
         addCooldown("1all1");
         if(req.response){
+            localStorage.setItem("AC-WebsitesInfos",JSON.stringify(req.response))
             return req.response;
         } else {
-            return null;
+            return oldWebsitesInfos;
         }
     } else{
-        return null;
+        return oldWebsitesInfos;
     }    
 }
 
 export async function newAccess(name){
     if(!inCooldown(`${name}-access`)){
         let req = await fetch(`${apiURL}/websites/${name}/newaccess`,defHeader);
+        if(!req.ok){
+            if(req.status==429){
+                const errorM = response.json();
+                addCooldown(`${name}-access`,errorM.retryAfter ?? 60*2)
+            } else {
+                addCooldown(`${name}-access`,60*2)
+            }
+            return false
+        }
         req = await req.json();
         console.log(req)
-        addCooldown(`${name}-access`,60*3);
-        if(req.status){
-            return true;
-        } else {
-            return false;
-        }
+        addCooldown(`${name}-access`,(req.nextAccess/1000) ?? 60*2);
+        return true;
     } else{
         return false;
     }    
@@ -66,7 +91,7 @@ function inCooldown(cdkey){
 function getCookie(name){
     const cookies = document.cookie.split(";");
     let finded = null;
-    for(let i in cookies){
+    for(let i of cookies){
         const [key,value] = i.trim().split("=");
         if(key===name){
             finded=value;

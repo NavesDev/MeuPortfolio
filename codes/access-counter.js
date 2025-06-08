@@ -9,7 +9,7 @@ export async function getWebsiteInfo(name){
         let req = await fetch(`${apiURL}/websites/${name}`,defHeader);
         if(!req.ok){
             if(req.status==429){
-                const errorM = response.json();
+                const errorM = req.json();
                 addCooldown(name,errorM.retryAfter)
             } else {
                 addCooldown(name)
@@ -35,7 +35,7 @@ export async function getWebsitesInfo(){
         let req = await fetch(`${apiURL}/websites`,defHeader); 
         if(!req.ok){
             if(req.status==429){
-                const errorM = response.json();
+                const errorM = req.json();
                 addCooldown("1all1",errorM.retryAfter)
             } else {
                 addCooldown("1all1")
@@ -60,7 +60,7 @@ export async function newAccess(name){
         let req = await fetch(`${apiURL}/websites/${name}/newaccess`,defHeader);
         if(!req.ok){
             if(req.status==429){
-                const errorM = response.json();
+                const errorM = req.json();
                 addCooldown(`${name}-access`,errorM.retryAfter ?? 60*2)
             } else {
                 addCooldown(`${name}-access`,60*2)

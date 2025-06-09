@@ -684,6 +684,7 @@ header .content {
   background-color: transparent;
   color: var(--textColor);
   font-family: "poppins";
+  cursor: pointer;
   border: 0;
   font-size: 16px;
 }
@@ -692,6 +693,7 @@ header .content {
 }
 .topList select option {
   background-color: var(--baseBack);
+  cursor: pointer;
 }
 .topList p::after {
   content: "";
@@ -726,6 +728,18 @@ header .content {
   -webkit-background-clip: text;
   color: transparent;
 }
+
+@keyframes lightMove{
+  0%{
+   scale: 1;
+  }
+  50%{
+    scale:1.05;
+  }
+  100%{
+    scale:1;
+  }
+}
 .fic button {
   font-family: "poppins";
   font-weight: 600;
@@ -735,6 +749,8 @@ header .content {
   outline: none;
   background: linear-gradient(to right, #20b3c4, #3388b9);
   border: 0px;
+  animation: name duration timing-function delay iteration-count direction fill-mode;
+  animation:lightMove 5000ms normal infinite ;
   border-radius: 10px;
 }
 

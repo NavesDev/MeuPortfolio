@@ -60,10 +60,12 @@ export class eCache{
             "HTML":"../sources/linguagens/html.png",
             "CSS":"../sources/linguagens/css.png",
             "JavaScript":"../sources/linguagens/javascript.png",
+            "TypeScript":"../sources/linguagens/typescript.png",
             "Python":"../sources/linguagens/python.png",
+            "Node.js":"../sources/linguagens/node.png",
             "Lua":"../sources/linguagens/lua.png",
             "MySQL":"../sources/linguagens/mysql.png",
-            "C#":"../sources/linguagens/cSharp.png"
+            "C#":"../sources/linguagens/cSharp.png",
         }   
         if(langs && langs[repName]){
             for(let key in langImgs){

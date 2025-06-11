@@ -8,7 +8,7 @@ underLineEff {
   --baseBack: rgb(31, 31, 31);
   --underBack: rgb(22, 22, 22);
   --secondaryBack: rgba(73, 73, 73, 0.562);
-  --popupBack:rgb(22, 22, 22);
+  --popupBack: rgb(22, 22, 22);
   --baseLight: 1;
   --textColor: white;
   --reverseColor: black;
@@ -19,19 +19,18 @@ underLineEff {
   --goToProjButtonColor: rgb(0, 183, 255);
   --baseButtonColor: rgb(219, 219, 219);
   --lineColor: rgba(128, 128, 128, 0.719);
-  --baseGradient:linear-gradient(to right, #20b3c4, #3388b9);
-  --otherStatistic:rgb(90, 90, 90);
-
+  --baseGradient: linear-gradient(to right, #20b3c4, #3388b9);
+  --otherStatistic: rgb(90, 90, 90);
 }
 
-.template{
+.template {
   display: none;
 }
 
 html.lightMode {
   --baseBack: rgb(255, 255, 255);
   --underBack: rgb(129, 194, 255);
-  --secondaryBack: rgba(192, 192, 192, 0.733);
+  --secondaryBack: rgba(192, 192, 192, 0.39);
   --baseLight: 0;
   --reverseColor: white;
   --textColor: rgb(0, 0, 0);
@@ -41,9 +40,9 @@ html.lightMode {
   --secondTextColor: rgb(77, 77, 77);
   --goToProjButtonColor: rgb(44, 153, 255);
   --baseButtonColor: rgb(105, 105, 105);
-  --popupBack: rgb(202, 202, 202);
+  --popupBack: rgb(226, 226, 226);
   --lineColor: gray;
-  --otherStatistic:rgb(168, 168, 168);
+  --otherStatistic: rgb(207, 207, 207);
 }
 
 .textColorSVG path {
@@ -84,8 +83,24 @@ html {
   visibility: hidden;
   transition: 300ms;
 }
+.line {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 
-.projPopup.inScreen{
+.accessHold {
+  gap: 3px;
+}
+.accessHold svg path {
+  fill: rgb(0, 164, 214);
+}
+.accessHold #accessCount {
+  font-size: 20px;
+  color: rgb(0, 164, 214);
+  font-weight: 600;
+}
+.projPopup.inScreen {
   visibility: visible;
   opacity: 1;
   pointer-events: initial;
@@ -120,7 +135,7 @@ html {
   border-radius: 2px;
 }
 
-.projPopup .content .infos .statistics{
+.projPopup .content .infos .statistics {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
@@ -128,52 +143,63 @@ html {
   width: 100%;
 }
 
-.projPopup .content .infos .statistics .commitCount{
+.projPopup .content .infos .statistics .commitCount {
   display: flex;
   flex-direction: row;
   align-items: center;
   width: 100%;
   gap: 10px;
 }
-@keyframes notLoadedAnim{
-  0%{
+@keyframes notLoadedAnim {
+  0% {
     opacity: 0.7;
     transform: rotate(0deg);
   }
-  50%{
+  50% {
     opacity: 1;
     transform: rotate(180deg);
   }
-  100%{
+  100% {
     opacity: 0.7;
     transform: rotate(360deg);
   }
 }
 
 @keyframes scaleAnim {
-  0%{
-    scale:1.0
-    
+  0% {
+    scale: 1;
   }
-  50%{
-    scale:1.1
+  50% {
+    scale: 1.1;
   }
-  100%{
-    scale:1
+  100% {
+    scale: 1;
   }
 }
 
-.projPopup .content .infos .statistics .commitCount .cEspecial{
+.projPopup .content .infos .statistics .commitCount .cEspecial {
   position: relative;
   font-size: 23px;
 }
 
-.projPopup .content .infos .statistics .commitCount .cEspecial:not(.notLoaded):hover ~ .hiddenData{
+.projPopup
+  .content
+  .infos
+  .statistics
+  .commitCount
+  .cEspecial:not(.notLoaded):hover
+  ~ .hiddenData {
   opacity: 0;
   visibility: visible;
 }
 
-.projPopup .content .infos .statistics .commitCount .cEspecial:not(.notLoaded) ~ .hiddenData{
+.projPopup
+  .content
+  .infos
+  .statistics
+  .commitCount
+  .cEspecial:not(.notLoaded)
+  ~ .hiddenData {
   position: absolute;
   bottom: 0;
   z-index: 20000;
@@ -181,73 +207,88 @@ html {
 }
 
 .projPopup .content .infos .statistics .meContent,
-.projPopup .content .infos .statistics .othersContent{
+.projPopup .content .infos .statistics .othersContent {
   display: none;
   flex-direction: column;
   gap: 10px;
 }
-.projPopup .content .infos .statistics .othersContent{
+.projPopup .content .infos .statistics .othersContent {
   justify-content: center;
   align-items: center;
 }
-.projPopup .content .infos .statistics .othersContent h2.noContent{
+.projPopup .content .infos .statistics .othersContent h2.noContent {
   font-weight: 500;
- 
 }
-.projPopup .content .infos .statistics .othersContent svg.noContent{
+.projPopup .content .infos .statistics .othersContent svg.noContent {
   width: 100px;
   height: 100px;
 }
 
-.projPopup .content .infos .statistics .othersContent svg.noContent path{
+.projPopup .content .infos .statistics .othersContent svg.noContent path {
   fill: var(--textColor);
 }
 
-.projPopup .content .infos .statistics .commitCount .cEspecial:not(.notLoaded){
-  background-image:  linear-gradient(to right, #20b3c4, #3388b9);
+.projPopup .content .infos .statistics .commitCount .cEspecial:not(.notLoaded) {
+  background-image: linear-gradient(to right, #20b3c4, #3388b9);
   scale: 1.5;
   color: transparent;
   font-weight: 700;
   animation: scaleAnim 2s infinite;
   -webkit-background-clip: text;
-  
 }
 
-.projPopup .content .infos .statistics .commitCount p{
+.projPopup .content .infos .statistics .commitCount p {
   font-size: 18px;
 }
 
-@keyframes notLoadedAnim{
-  0%{
+@keyframes notLoadedAnim {
+  0% {
     opacity: 0.7;
     transform: rotate(-2deg);
     background-color: rgb(80, 80, 80);
   }
-  50%{
+  50% {
     opacity: 1;
     transform: rotate(2deg);
     background-color: gray;
   }
-  100%{
+  100% {
     opacity: 0.7;
     transform: rotate(-2deg);
     background-color: rgb(80, 80, 80);
   }
 }
+.notLoaded {
+  color: transparent !important;
+  position: relative;
+}
+.notLoaded::after {
+  content: "";
 
-.projPopup .content .infos .statistics .commitCount .cEspecial.notLoaded{
- 
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  background-color: gray;
+  border-radius: 3px;
+  animation: notLoadedAnim 2s infinite;
+}
+.projPopup .content .infos .statistics .commitCount .cEspecial.notLoaded {
   padding: 2px;
   border-radius: 3px;
-  
+
   color: #ffffff00;
   overflow: hidden;
-  
 }
-.projPopup .content .infos .statistics .commitCount .cEspecial.notLoaded::after{
- 
+.projPopup
+  .content
+  .infos
+  .statistics
+  .commitCount
+  .cEspecial.notLoaded::after {
   width: 100%;
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -256,7 +297,7 @@ html {
   height: 100%;
 }
 
-.projPopup .content .infos .statistics .cGraf{
+.projPopup .content .infos .statistics .cGraf {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -266,12 +307,11 @@ html {
   overflow: hidden;
 }
 
-
-.projPopup .content .infos .statistics .cGraf div{
+.projPopup .content .infos .statistics .cGraf div {
   height: 100%;
-  width: 50%; 
+  width: 50%;
   border-radius: 0;
- 
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -279,107 +319,102 @@ html {
   background: var(--otherStatistic);
   transition: 300ms;
   overflow: hidden;
-
-
 }
 
-.projPopup .content .infos .statistics .cGraf div::before{
+.projPopup .content .infos .statistics .cGraf div::before {
   width: 100%;
   height: 100%;
-  content: '';
+  content: "";
   position: absolute;
   background-color: rgba(128, 128, 128, 0.301);
-  top:50%;
+  top: 50%;
   transform: translateY(-50%);
-  left:-100%;
+  left: -100%;
   transition: 300ms;
 }
 
-.projPopup .content .infos .statistics .cGraf div.selected{
+.projPopup .content .infos .statistics .cGraf div.selected {
   background: var(--baseGradient);
 }
-.projPopup .content .infos .statistics .cGraf div:not(.selected):hover::before{
+.projPopup .content .infos .statistics .cGraf div:not(.selected):hover::before {
   left: 0;
   cursor: pointer;
 }
 
-
 .projPopup .content .infos .statistics .meContent.selected,
-.projPopup .content .infos .statistics .othersContent.selected{
+.projPopup .content .infos .statistics .othersContent.selected {
   display: flex;
   visibility: visible;
 }
-.projPopup .content .infos .statistics .cGraf div:not(:last-child)::after{
+.projPopup .content .infos .statistics .cGraf div:not(:last-child)::after {
   content: "";
   height: calc(100% + 2px);
   background-color: var(--textColor);
   width: 3px;
   position: absolute;
   right: -1.5px;
-
 }
 
-.projPopup .content .infos .statistics .cGraf div h2{
+.projPopup .content .infos .statistics .cGraf div h2 {
   font-size: 18px;
 }
 
-.projPopup .content .backButton{
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    padding: 10px;
-    top: 15px;
-    right:15px;
-    z-index: 1000;
-    border-radius: 0px 0px 0px 20px;
-    background-color: var(--popupBack);
-    cursor:pointer;
+.projPopup .content .backButton {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+  top: 15px;
+  right: 15px;
+  z-index: 1000;
+  border-radius: 0px 0px 0px 20px;
+  background-color: var(--popupBack);
+  cursor: pointer;
 }
-.projPopup .content .backButton path{
-    fill: var(--textColor);
+.projPopup .content .backButton path {
+  fill: var(--textColor);
 }
 .projPopup .content .thumb {
   width: 500px;
   height: 250px;
   border-radius: 10px;
 }
-.projPopup .content .others{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    padding: 20px;
-    gap: 10px;
-
+.projPopup .content .others {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px;
+  gap: 10px;
 }
 
-.projPopup .content .others .divisor{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    gap: 8px;
-
+.projPopup .content .others .divisor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
 }
 
-.projPopup .content .others .divisor .title{
-    font-weight: 500;
+.projPopup .content .others .divisor .title {
+  font-weight: 500;
 }
 
-.projPopup .content .others .langs{
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
+.projPopup .content .others .langs {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
-.projPopup .content .others .langs img{
-    width: 45px;
-    height: 45px;
+.projPopup .content .others .langs img {
+  width: 45px;
+  height: 45px;
 }
 
 .projPopup .content .infos,
-.projPopup .content .others{
+.projPopup .content .others {
   background-color: var(--baseBack);
   border-radius: 10px;
+  overflow-y: scroll;
 }
 .projPopup .content .infos {
   grid-row: span 2;
@@ -389,24 +424,22 @@ html {
   align-items: center;
   padding: 20px;
   overflow-y: scroll;
-  gap:5px;
+  gap: 5px;
 }
-.projPopup .projB{
-    width: 100%;
-    justify-content: center;
+.projPopup .projB {
+  width: 100%;
+  justify-content: center;
 }
-.projPopup .content .infos .title{
-    font-family: 'poppins';
-    font-weight: 500;
-    font-size: 28px;
+.projPopup .content .infos .title {
+  font-family: "poppins";
+  font-weight: 500;
+  font-size: 28px;
 }
-.projPopup .content .infos .parag{
-    font-size: 18px;
-
-   
+.projPopup .content .infos .parag {
+  font-size: 18px;
 }
-.projPopup .content .infos .parag :not(:last-child){
-    margin-bottom: 20px;
+.projPopup .content .infos .parag :not(:last-child) {
+  margin-bottom: 20px;
 }
 
 .projects {
@@ -433,6 +466,7 @@ html {
 .projDesc {
   font-weight: 300 !important;
   font-size: 15px !important;
+  text-align: justify;
 }
 
 .projheader {
@@ -444,9 +478,6 @@ html {
 
 .projStatus .stsIcon path {
   fill: var(--textColor);
-}
-.projStatus.statusFreq .stsIcon path {
-  fill: rgb(226, 136, 0);
 }
 .projTags {
   display: flex;
@@ -473,6 +504,7 @@ html {
   background-color: var(--secondaryBack);
   padding: 0px 5px 0px 5px;
   border-radius: 5px;
+  flex-wrap: wrap;
 }
 .projB {
   border-radius: 6px;
@@ -524,7 +556,59 @@ html {
 }
 .projStatus.statusFreq p {
   color: rgb(226, 136, 0);
-  
+  animation: fireAnim 3s infinite ;
+}
+.projStatus.statusFreq .stsIcon path {
+  fill: rgb(226, 136, 0);
+  animation: fireAnim 3s infinite ;
+}
+@keyframes fireAnim{
+  0%{
+    color:rgb(226, 136, 0);
+    fill: rgb(226, 136, 0);
+  }
+  50%{
+    color:rgb(255, 200, 20);
+    fill: rgb(255, 200, 20);
+  }
+  100%{
+    color:rgb(226, 136, 0);
+    fill: rgb(226, 136, 0);
+  }
+}
+@keyframes newAnim {
+ 0%, 100% {
+        color: #ff4d4d; 
+        fill: #ff4d4d; 
+    }
+    16% {
+        color: #ff9a4d; 
+        fill: #ff9a4d;
+    }
+    33% {
+        color: #ffff4d; 
+        fill: #ffff4d;
+    }
+    50% {
+        color: #4dff4d; 
+        fill: #4dff4d;
+    }
+    66% {
+        color: #4d4dff;
+        fill: #4d4dff;
+    }
+    83% {
+        color: #9a4dff; 
+        fill: #9a4dff;
+    }
+}
+.projStatus.statusNew p {
+  color: rgb(126, 139, 255) ; 
+  animation: newAnim 3s  infinite ;
+}
+.projStatus.statusNew svg path {
+  fill: rgb(126, 139, 255);
+  animation: newAnim 3s  infinite ;
 }
 
 .project .projInfo {
@@ -532,7 +616,6 @@ html {
   flex-direction: column;
   justify-content: space-around;
   width: 100%;
-
 }
 .project .thumb {
   width: 500px;
@@ -729,15 +812,15 @@ header .content {
   color: transparent;
 }
 
-@keyframes lightMove{
-  0%{
-   scale: 1;
+@keyframes lightMove {
+  0% {
+    scale: 1;
   }
-  50%{
-    scale:1.05;
+  50% {
+    scale: 1.05;
   }
-  100%{
-    scale:1;
+  100% {
+    scale: 1;
   }
 }
 .fic button {
@@ -749,8 +832,9 @@ header .content {
   outline: none;
   background: linear-gradient(to right, #20b3c4, #3388b9);
   border: 0px;
-  animation: name duration timing-function delay iteration-count direction fill-mode;
-  animation:lightMove 5000ms normal infinite ;
+  animation: name duration timing-function delay iteration-count direction
+    fill-mode;
+  animation: lightMove 5000ms normal infinite;
   border-radius: 10px;
 }
 
@@ -1105,49 +1189,55 @@ underLineEff:hover + .hiddenFaq div {
   opacity: 1;
 }
 
-@media (max-width: 768px) {
-  .baseSts.project{
+@media (max-width: 1052px) {
+  .baseSts.project {
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 10px;
     gap: 9px;
   }
-  .projPopup{
-
+  .baseSts.project .projInfo .projContent {
+   
+    flex-direction: column;
+    display: flex;
   }
-  .projPopup .content .infos{
-    overflow-y: visible;
+  .baseSts.project .projInfo .projContent .projheader{
+    margin-bottom: 10px;
   }
-  .projPopup .content{
+  .projPopup .content .infos {
+    overflow-y: scroll;
+  }
+  .projPopup .content {
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
     width: calc(90vw - 20px);
     min-width: auto;
     border-radius: 2px;
-    height:90vh;
+    height: 90vh;
   }
-  .projPopup .content .backButton{
+  .projPopup .content .backButton {
     position: fixed;
-    top:20px;
+    top: 20px;
   }
-  .projPopup .content .thumb{
+  .projPopup .content .thumb {
     width: 100%;
   }
-  .project .projInfo{
+  .project .projInfo {
     gap: 10px;
   }
-  .project .thumb{
+  .project .thumb {
     width: 100%;
     height: auto;
     aspect-ratio: 2;
   }
-  .project .projButtons{
+  .project .projButtons {
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
   }
-  .project .projheader{
+  .project .projheader {
     flex-direction: column;
     gap: 10px;
   }
@@ -1188,7 +1278,7 @@ underLineEff:hover + .hiddenFaq div {
   }
   .baseSts h1 {
     text-align: center;
-    margin-bottom: 10px;
+ 
   }
   .content {
   }
@@ -1205,5 +1295,8 @@ underLineEff:hover + .hiddenFaq div {
   }
   .topList {
     flex-direction: column;
+  }
+  .projTitle{
+    margin: 0;
   }
 }

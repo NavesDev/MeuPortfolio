@@ -10,9 +10,11 @@ const emailLinks = {
 
 const gLinks = {
     portifolio: 'https://navesdev.github.io/MeuPortfolio',
-    portGit: 'https://github.com/NavesDev/MeuPortfolio'
+    gitUrl: 'https://github.com/NavesDev'
 }
 //theme code
+
+
 
 class Popup{
     constructor(popup){
@@ -106,11 +108,9 @@ function linkWith(url){
     
 }
 
-
-
-document.querySelectorAll("#repButton").forEach( (element)=>{
-    element.addEventListener('click',linkWith(gLinks.portGit))
-})
+//document.querySelectorAll("#repButton").forEach( (element)=>{
+    //element.addEventListener('click',linkWith(`${gLinks.gitUrl}/${element.closest(".projPopup").id}`))
+//})
 
 function goToObj(event){
     const target = event.target
@@ -171,6 +171,7 @@ function langChange(ev){
     }
 }
 
+
 let all = []
 const popups = []
 document.querySelectorAll('.projPopup').forEach(element => {
@@ -178,6 +179,15 @@ document.querySelectorAll('.projPopup').forEach(element => {
     popups.push(popup)
     all.push(element.id)
 });
+
+function searchBy(list,target,data){
+    for(let i in list){
+        if(list[i][data]?.toLowerCase?.()==target?.toLowerCase() && target){
+            return list[i];
+        }
+    }
+    return null;
+}
 
 async function basics(){
     const mecache=new eCache(await essentialCaches(all))
@@ -187,7 +197,18 @@ async function basics(){
         langHolder = obj.base.querySelector(".projLangs")
         mecache.linkLangs(obj.repName,langHolder,langHolder.querySelector(".template"))
     }
-    console.log(await newAccess("MeuPortfolio"))
+    newAccess("MeuPortfolio")
+    const websites=await getWebsitesInfo()
+   
+    for(const obj of document.querySelectorAll(".needAccessCount")){
+        const websiteName = obj.closest(".project").getAttribute("name")
+        if(searchBy(websites,websiteName,"wname")){
+            const wv = searchBy(websites,websiteName,"wname")
+            obj.innerText = wv?.["waccess"]
+            obj.classList.remove("notLoaded")
+        }
+            
+    }
 
    
 } 

@@ -1212,7 +1212,7 @@ underLineEff:hover + .hiddenFaq div {
   right: 40px;
   z-index: 1;
   border-radius: 15px 15px 0px 0px;
-  overflow: hidden;
+  overflow: auto;
   transition: 0.7s ease-out;
 
   box-shadow: 0px 0px 7px 5px rgba(0, 0, 0, 0.164);

@@ -1214,7 +1214,7 @@ underLineEff:hover + .hiddenFaq div {
   border-radius: 15px 15px 0px 0px;
   overflow: hidden;
   transition: 0.7s ease-out;
-  justify-content: center;
+
   box-shadow: 0px 0px 7px 5px rgba(0, 0, 0, 0.164);
 }
 #chatbot .topo{
@@ -1337,7 +1337,7 @@ background-color: var(--userMessageBGColor);
   }
   #chatbot #chatInput{
     
-}
+  }
   .baseSts.project {
     display: flex;
     flex-direction: column;

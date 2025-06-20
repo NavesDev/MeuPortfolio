@@ -1317,7 +1317,7 @@ background-color: var(--userMessageBGColor);
   resize: none;
   font-family: 'Poppins';
   outline: none;
-  width: calc(100% - (var(--cbotSvgSize) +20px));
+  width: calc(100% - (var(--cbotSvgSize) + 20px));
   color: var(--textColor);
 }
 #chatbot #chatInput #userPrompt::-webkit-scrollbar-thumb{

@@ -223,5 +223,5 @@ window.addEventListener("resize",updateWindow)
 document.getElementById("contactB").addEventListener("click",goToObj)
 document.getElementById("skillsB").addEventListener("click",goToObj)
 document.getElementById("projB").addEventListener("click",goToObj)
-document.getElementById("goToButton").addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"})})
+
 })

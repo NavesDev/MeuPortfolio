@@ -74,6 +74,12 @@ export class eCache{
                     newImg.src = langImgs[key]
                     newImg.classList.remove("template")
                     parent.appendChild(newImg)
+                    if(key=="TypeScript"){
+                        const newImg = imgTemplate.cloneNode(true)
+                        newImg.src = langImgs["Node.js"]
+                        newImg.classList.remove("template")
+                        parent.appendChild(newImg)
+                    }
                 }
             }
         }

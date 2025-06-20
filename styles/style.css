@@ -1205,6 +1205,7 @@ underLineEff:hover + .hiddenFaq div {
   position: fixed;
   display: grid;
   grid-template-rows: var(--altura-visivel) 1fr 40px;
+  grid-template-columns: 250px;
   bottom: 0;
   width: 250px;
   height: var(--chatbot-height);
@@ -1317,7 +1318,7 @@ background-color: var(--userMessageBGColor);
   resize: none;
   font-family: 'Poppins';
   outline: none;
-  width: calc(100% - (var(--cbotSvgSize) + 20px));
+  width: calc(100% - ( var(--cbotSvgSize) + 20px));
   color: var(--textColor);
 }
 #chatbot #chatInput #userPrompt::-webkit-scrollbar-thumb{
@@ -1334,7 +1335,7 @@ background-color: var(--userMessageBGColor);
     right: unset;
     left: 50%;
     transform: translateX(-50%);
-    width: 250px;
+    width: 250px; 
   }
   #chatbot #chatInput{
     

@@ -1272,7 +1272,7 @@ underLineEff:hover + .hiddenFaq div {
   width: max-content;
   padding: 5px 10px 5px 10px;
   border-radius: 15px;
-  word-break:break-word;
+  overflow-wrap:break-word;
   font-size: 14px;
   max-width: 80%;
   text-align:left;

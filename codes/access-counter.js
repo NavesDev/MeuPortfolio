@@ -69,7 +69,7 @@ export async function newAccess(name){
         }
         req = await req.json();
         console.log(req)
-        addCooldown(`${name}-access`,(req.nextAccess/1000) ?? 60*2);
+        addCooldown(`${name}-access`,(req.nextAccess/1000) ?? 60*10);
         return true;
     } else{
         return false;

@@ -25,6 +25,8 @@ underLineEff {
   --userMessageBGColor:rgb(88, 88, 88);
   --botMessageBGColor:gray;
   --chatInputColor:rgb(27, 27, 27);
+  --gitHubButtonBackground:rgb(118, 28, 170);
+  --textColor2:rgb(201, 201, 201);
 }
 
 .template {
@@ -51,6 +53,7 @@ html.lightMode {
   --userMessageBGColor:rgb(206, 206, 206);
   --botMessageBGColor:rgb(184, 184, 184);
   --chatInputColor:rgba(207, 207, 207, 0.596);
+  --textColor2:rgb(71, 71, 71);
 }
 
 .textColorSVG path {
@@ -841,12 +844,14 @@ header .content {
   outline: none;
   background: linear-gradient(to right, #20b3c4, #3388b9);
   border: 0px;
-  animation: name duration timing-function delay iteration-count direction
-    fill-mode;
-  animation: lightMove 5000ms normal infinite;
+  
+  animation: lightMove 2500ms normal infinite;
   border-radius: 10px;
 }
 
+.gtemplate{
+  display: none !important;
+}
 .timeline p {
   color: var(--secondTextColor);
   text-decoration: none;
@@ -1246,16 +1251,32 @@ underLineEff:hover + .hiddenFaq div {
 }
 
 @keyframes loadingMsg{
-  0%,100%{
-    transform: translateX(0);;
+  0%{
+  
     scale: 1.0;
   }
-  50%{
-    transform: translateX(40px) ;
+  20%{
     scale:1;
-    border-radius: 3px;
+    transform: rotate(90deg);
+
+    background-color: rgb(0, 255, 255);
   }
- 
+  40%{
+    transform: rotate(180deg);
+    background-color: rgb(163, 255, 88);
+  }
+  60%{
+    transform: rotate(270deg);
+    background-color: rgb(255, 88, 88);
+  }
+ 80%{
+    background:var(--botMessageBGColor);
+    transform: rotate(360deg);
+ }
+ 100%{
+  background:var(--botMessageBGColor);
+    transform: rotate(360deg);
+ }
   
 }
 
@@ -1264,19 +1285,151 @@ underLineEff:hover + .hiddenFaq div {
   background:var(--botMessageBGColor);
   width: 16px;
   height: 16px;
-  border-radius: 50%;
-  animation: loadingMsg 2s infinite;
+border-radius: 3px;
+  animation: loadingMsg 4s infinite;
   
 }
 #cbotChat .botMessage{
-  background-color: var(--botMessageBGColor);
   width: max-content;
-  padding: 5px 10px 5px 10px;
-  border-radius: 15px;
   overflow-wrap:break-word;
   font-size: 14px;
   max-width: 80%;
   text-align:left;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+#cbotChat .botMessage .message{
+  background-color: var(--botMessageBGColor);
+   padding: 5px 10px 5px 10px;
+  font-size: 13px;
+  border-radius: 15px;
+}
+#cbotChat .botMessage .messageDate{
+  margin-left: 13px;
+  font-size: 12px;
+}
+#cbotChat #errorHistoryMessage {
+  font-size: 12px;
+  font-weight: 300;
+  justify-self: center;
+  text-align: center;
+  color: var(--textColor2);
+}
+
+#cbotChat #errorHistoryMessage p{
+  display: none;
+}
+#cbotChat #errorHistoryMessage p.active{
+  display:block;
+}
+
+
+#cbotChat .botMessage .commands {
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
+  gap: 5px;
+ 
+}
+
+#cbotChat .botMessage .commands .goToSecM{
+  display: flex;
+  flex-direction: column;
+}
+#cbotChat .botMessage .commands .goToSecM h1{
+  font-size: 12px;
+  font-weight: 400;
+  color:var(--textColor);
+}
+#cbotChat .botMessage .commands .goToSecM p{
+  font-size: 10px;
+  font-weight: 300;
+  color:var(--textColor2);
+  cursor:pointer;
+}
+
+#cbotChat .botMessage .commands:not(:has(> :not(.gtemplate))){
+  display: none !important; 
+}
+#cbotChat .botMessage .commands::-webkit-scrollbar{
+  height: 5px;
+  background: rgba(185, 185, 185, 0.144);
+}
+
+#cbotChat .botMessage .commands .githubB{
+  border: 0;
+  width: max-content;
+}
+
+#cbotChat .botMessage .commands .contactMeB{
+  width: 100%;
+}
+#cbotChat .botMessage .commands .contactMeB button{
+  width: 100%;
+  justify-content: center;
+  font-size: 12px;
+  background:var(--baseGradient);
+  color: white;
+  position: relative;
+  box-shadow: 0 0 15px 3px #1eadff80;
+}
+
+#cbotChat .botMessage .commands .contactMeB button svg{
+  width: 14px;
+  height: 14px;
+  animation: pulsante 2s infinite;
+}
+@keyframes pulsante {
+  0%,100%{
+    scale: 1.0;
+  }
+  50%{
+    scale: 1.3;
+  }
+}
+
+#cbotChat .botMessage .commands .contactMeB button svg path{
+  fill: white;
+}
+
+#cbotChat .botMessage .commands a button{
+  width: max-content;
+  border: 0;
+  padding: 3px 8px 3px 5px;
+   font-family: 'poppins';
+  border-radius: 20px;
+  display: flex;
+  font-weight: 600;
+  font-size: 12px;
+  flex-direction: row;
+  align-items: center;
+  gap:3px;
+}
+#cbotChat .botMessage .commands .githubB button{
+  
+  background-color: var(--gitHubButtonBackground);
+  color: white;
+
+}
+#cbotChat .botMessage .commands a button:hover{
+  filter: brightness(0.5);
+  scale: 1.0;
+  transform: translate(0,0);
+}
+#cbotChat .botMessage .commands a button img,
+#cbotChat .botMessage .commands a button svg
+{
+  width: 12px;
+  height: 12px;
+}
+#cbotChat .botMessage .commands a button svg path{
+  fill:black;
+}
+#cbotChat .botMessage .commands .accessB button{
+  color:black;
 }
 #cbotChat .userMessage{
 background-color: var(--userMessageBGColor);

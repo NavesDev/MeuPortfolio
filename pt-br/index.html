@@ -732,14 +732,47 @@
         <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#ffffff"><path d="M331-651 211-771l57-57 120 120-57 57Zm149-95v-170h80v170h-80Zm291 535L651-331l57-57 120 120-57 57Zm-63-440-57-57 120-120 57 57-120 120Zm38 171v-80h170v80H746ZM205-92 92-205q-12-12-12-28t12-28l363-364q35-35 85-35t85 35q35 35 35 85t-35 85L261-92q-12 12-28 12t-28-12Zm279-335-14.5-14-14.5-14-14-14-14-14 28 28 29 28ZM233-176l251-251-57-56-250 250 56 57Z"/></svg>
         <p>Camis <strong>AI</strong></p>
       </div>
-      <div id = "cbotChat" class="botTyping">
-        <p class="userMessage">Quem é você?</p>
-        <p class="botMessage">Sou <strong>Camis AI</strong>, um assistente do Pórtfólio. Volte em breve! Estou em desenvolvimento :D</p>
+      <div id = "cbotChat">
+        <div id="errorHistoryMessage" class="gtemplate">
+          <p class="tooMany">Ei vai com calma! muitas requisições</p>
+          <p class="general">Erro inesperado ao gerar histórico de mensagens</p>
+        </div>
+        <p class="userMessage gtemplate">Quem é você?</p>
+        <div class="botMessage gtemplate">
+          <div class="message">
+            <p>Sou <strong>Camis AI</strong>, um assistente do Pórtfólio. Volte em breve! Estou em desenvolvimento :D</p>
+          </div>
+          <div class="commands">
+            <a class="contactMeB gtemplate">
+              <button> 
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h404q-4 20-4 40t4 40H160l320 200 146-91q14 13 30.5 22.5T691-572L480-440 160-640v400h640v-324q23-5 43-14t37-22v360q0 33-23.5 56.5T800-160H160Zm0-560v480-480Zm600 80q-50 0-85-35t-35-85q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35Z"/></svg>
+                 <p class="websiteName">ENTRAR EM CONTATO</p>
+              </button>
+            </a>
+            <div class="goToSecM gtemplate">
+              <h1 class="redirectMessage">A IA te redirecionou para uma seção</h1>
+              <p>Clique para desativar este recurso</p>
+            </div>
+            <a class="githubB gtemplate">
+              <button> 
+                <img src="../sources/social/github2.png" alt="">
+                 <p class="websiteName">TESTE</p>
+              </button>
+            </a>
+            <a class="accessB gtemplate">
+              <button> 
+                <svg class="projButtonIcon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-7-.5-14.5T799-507q-5 29-27 48t-52 19h-80q-33 0-56.5-23.5T560-520v-40H400v-80q0-33 23.5-56.5T480-720h40q0-23 12.5-40.5T563-789q-20-5-40.5-8t-42.5-3q-134 0-227 93t-93 227h200q66 0 113 47t47 113v40H400v110q20 5 39.5 7.5T480-160Z"></path></svg>
+                 <p class="websiteName">TESTE</p>
+              </button>
+            </a>
+          </div>
+    
+        </div>
         
       </div>
       <div id="chatInput">
-        <textarea name="" placeholder="Em breve..." id="userPrompt" maxlength="80" disabled></textarea>
-        <svg class="sendButton" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z"/></svg>
+        <textarea name="" placeholder="Escreva sua mensagem..." id="userPrompt" maxlength="80"></textarea>
+        <svg id = "aiSendButton"class="sendButton" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z"/></svg>
       </div>
     </div>
     <script src="../codes/script.js"type='module'></script>

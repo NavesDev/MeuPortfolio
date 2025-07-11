@@ -860,6 +860,9 @@ header .content {
   color: var(--textColor);
   text-decoration: none;
 }
+a.nonDecoration{
+  text-decoration: none;
+}
 .fic button:hover {
   background: linear-gradient(to right, #009eaf, #28719b);
 }

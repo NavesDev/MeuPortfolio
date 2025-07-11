@@ -56,7 +56,7 @@ function messageEmit(role,message,commands = [],retroative = false){
                     comEl = commandsElement.querySelector(".githubB.gtemplate").cloneNode(true)
                     comEl.querySelector(".websiteName").innerText = commandSufix.toUpperCase()
                     comEl.href = `${gitHubPrefix}/${commandSufix}`
-                    comEl.remove("gtemplate")
+                    comEl.classList.remove("gtemplate")
                     commandsElement.appendChild(comEl)
                 }else if(commandPrefix=="access" && false){
                     comEl = commandsElement.querySelector(".accessB.gtemplate").cloneNode(true)

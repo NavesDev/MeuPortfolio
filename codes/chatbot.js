@@ -64,11 +64,22 @@ function messageEmit(role,message,commands = [],retroative = false){
                     comEl.href = "www.google.com"
                     comEl.remove("gtemplate")
                     commandsElement.appendChild(comEl)
-                } else if(commandPrefix=="gotosec" && false){
+                } else if(commandPrefix=="gotosec" && retroative == false){
                     comEl = commandsElement.querySelector(".goToSecM.gtemplate").cloneNode(true)
-                    
+                    console.log("try2")
                     if(aiPreferences.canRedirect){
-                        
+                        console.log("try 3")
+                        const objClass = `.sec${commandSufix}`
+                        console.log(objClass)
+                        const sec= document.querySelector(objClass)
+                        if(sec){
+                            sec.style.animation = "piscar 5s 1"
+                            console.log("scrolled")
+                            sec.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'      
+                            });
+                        } else continue;
                     } else {
                         comEl.querySelector("h1").innerText = "Redirecionamento bloqueado"
                         comEl.querySelector("p").innerText = "Clique para ativar este recurso"
@@ -78,7 +89,7 @@ function messageEmit(role,message,commands = [],retroative = false){
                 }
             }
         } 
-        chatElement.appendChild(element)
+        return chatElement.appendChild(element)
     } else if(role=="server"){
         const element = chatElement.querySelector(".serverMessage.gtemplate")?.cloneNode(true)
         element.querySelector(".message").innerHTML = `<p>${message}</p>`
@@ -116,6 +127,7 @@ let inprocess = false
 async function sendMessage(event){
     promptEl = input.querySelector("#userPrompt")
     if(!inprocess && promptEl.value.length>=1){
+        chatElement.classList.add("botTyping")
         inprocess = true
         mprompt = promptEl.value
         promptEl.disabled = true
@@ -131,12 +143,16 @@ async function sendMessage(event){
         })
         if(message.ok){
             message = await message.json()
-            messageEmit(message.role,message.message,message.commands)
-            chatElement.scrollTop = chatElement.scrollHeight;
+            chatElement.classList.remove("botTyping")
+            message = messageEmit(message.role,message.message,message.commands)
         }
-        chatElement.scrollTop = chatElement.scrollHeight; 
+        chatElement.classList.remove("botTyping")
+        message.scrollIntoView({
+        behavior: 'smooth', // Deixa a rolagem suave, bem chique
+        block: 'start'      // Alinha o TOPO do elemento com o TOPO da área visível
+        });
         promptEl.disabled = false
-            inprocess = false
+        inprocess = false
     }    
 }
 input.querySelector("#aiSendButton").addEventListener("click",sendMessage)

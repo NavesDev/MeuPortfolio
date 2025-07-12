@@ -1213,9 +1213,9 @@ underLineEff:hover + .hiddenFaq div {
   position: fixed;
   display: grid;
   grid-template-rows: var(--altura-visivel) 1fr 40px;
-  grid-template-columns: 250px;
+  grid-template-columns: 450px;
   bottom: 0;
-  width: 250px;
+  width: 450px;
   height: var(--chatbot-height);
   background: var(--chatBotColor);
   right: 40px;
@@ -1283,12 +1283,23 @@ underLineEff:hover + .hiddenFaq div {
   
 }
 
+@keyframes piscar {
+  0%,34%,68%,100%{
+    filter: brightness(1);
+  }  
+  17%,51%,75%{
+    filter: brightness(1.5);
+  }
+
+}
+
 #cbotChat.botTyping::after{
-  content: " ";
+  content: "-";
+  color: transparent;
   background:var(--botMessageBGColor);
   width: 16px;
   height: 16px;
-border-radius: 3px;
+  border-radius: 3px;
   animation: loadingMsg 4s infinite;
   
 }
@@ -1474,7 +1485,7 @@ background-color: var(--userMessageBGColor);
   resize: none;
   font-family: 'Poppins';
   outline: none;
-  width: calc(100% - ( var(--cbotSvgSize) + 20px));
+  width: 80%;
   color: var(--textColor);
 }
 #chatbot #chatInput #userPrompt::-webkit-scrollbar-thumb{
@@ -1491,7 +1502,8 @@ background-color: var(--userMessageBGColor);
     right: unset;
     left: 50%;
     transform: translateX(-50%);
-    width: 250px; 
+    width: min(450px,100%);
+    grid-template-columns: min(450px,100%); 
   }
   #chatbot #chatInput{
     

@@ -92,11 +92,23 @@ function messageEmit(role,message,commands = [],retroative = false){
             }
         } 
         return chatElement.appendChild(element)
-    } else if(role=="server"){
-        const element = chatElement.querySelector(".serverMessage.gtemplate")?.cloneNode(true)
-        element.querySelector(".message").innerHTML = `<p>${message}</p>`
-        element.classList.remove("gtemplate")
-        chatElement.appendChild(element)
+    } else if(role=="server" ){
+        const serverMessages = chatElement.querySelector(".serverErrors.gtemplate").querySelectorAll(".serverMessage")
+        let selectedIndex = false
+        let messageKey = message
+        serverMessages.forEach((value, index, array) => {
+            if(value.classList.contains(messageKey)){
+                selectedIndex = index
+            }
+        })
+        message = null
+        if(selectedIndex != false){
+            message = serverMessages[selectedIndex].cloneNode(true)
+        } else {
+            message = serverMessages[0].cloneNode(true)
+            
+        }
+        return chatElement.appendChild(message)
     }
 }
 
@@ -123,6 +135,7 @@ const main = async()=>{
         errorobj.classList.remove("gtemplate")
     }
     
+    
 } 
 
 let inprocess = false
@@ -147,6 +160,19 @@ async function sendMessage(event){
             message = await message.json()
             chatElement.classList.remove("botTyping")
             message = messageEmit(message.role,message.message,message.commands)
+        } else {
+            if(message.status === 429 ){
+                message = await message.json()
+                if(message.error == "Too Many Requests"){
+                    message = messageEmit("server","tooManyError")
+                } else if (message.error == "Temp Ban"){
+                    message = messageEmit("server","banError")
+                } else {
+                    message = messageEmit('server',"generalError")
+                }
+            } else{
+                message = messageEmit("server","generalError")
+            }
         }
         chatElement.classList.remove("botTyping")
         message.scrollIntoView({

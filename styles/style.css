@@ -1382,6 +1382,11 @@ underLineEff:hover + .hiddenFaq div {
   margin-left: 13px;
   font-size: 12px;
 }
+#cbotChat .serverMessage{
+  font-size: 12px;
+  justify-self: center;
+  text-align: center;
+}
 #cbotChat #errorHistoryMessage {
   font-size: 12px;
   font-weight: 300;

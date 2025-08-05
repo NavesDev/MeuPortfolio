@@ -21,12 +21,12 @@ underLineEff {
   --lineColor: rgba(128, 128, 128, 0.719);
   --baseGradient: linear-gradient(to right, #20b3c4, #3388b9);
   --otherStatistic: rgb(90, 90, 90);
-  --chatBotColor:rgb(34, 34, 34);
-  --userMessageBGColor:rgb(88, 88, 88);
-  --botMessageBGColor:gray;
-  --chatInputColor:rgb(27, 27, 27);
-  --gitHubButtonBackground:rgb(118, 28, 170);
-  --textColor2:rgb(201, 201, 201);
+  --chatBotColor: rgb(34, 34, 34);
+  --userMessageBGColor: rgb(88, 88, 88);
+  --botMessageBGColor: gray;
+  --chatInputColor: rgb(27, 27, 27);
+  --gitHubButtonBackground: rgb(118, 28, 170);
+  --textColor2: rgb(201, 201, 201);
 }
 
 .template {
@@ -49,11 +49,11 @@ html.lightMode {
   --popupBack: rgb(226, 226, 226);
   --lineColor: gray;
   --otherStatistic: rgb(207, 207, 207);
-  --chatBotColor:white;
-  --userMessageBGColor:rgb(206, 206, 206);
-  --botMessageBGColor:rgb(184, 184, 184);
-  --chatInputColor:rgba(207, 207, 207, 0.596);
-  --textColor2:rgb(71, 71, 71);
+  --chatBotColor: white;
+  --userMessageBGColor: rgb(206, 206, 206);
+  --botMessageBGColor: rgb(184, 184, 184);
+  --chatInputColor: rgba(207, 207, 207, 0.596);
+  --textColor2: rgb(71, 71, 71);
 }
 
 .textColorSVG path {
@@ -71,11 +71,11 @@ html {
 @keyframes summon {
   0% {
     opacity: 0;
-    scale:0;
+    scale: 0;
   }
   100% {
     opacity: 1;
-    scale:1;
+    scale: 1;
   }
 }
 
@@ -569,59 +569,60 @@ html {
 }
 .projStatus.statusFreq p {
   color: rgb(226, 136, 0);
-  animation: fireAnim 3s infinite ;
+  animation: fireAnim 3s infinite;
 }
 .projStatus.statusFreq .stsIcon path {
   fill: rgb(226, 136, 0);
-  animation: fireAnim 3s infinite ;
+  animation: fireAnim 3s infinite;
 }
-@keyframes fireAnim{
-  0%{
-    color:rgb(226, 136, 0);
+@keyframes fireAnim {
+  0% {
+    color: rgb(226, 136, 0);
     fill: rgb(226, 136, 0);
   }
-  50%{
-    color:rgb(255, 200, 20);
+  50% {
+    color: rgb(255, 200, 20);
     fill: rgb(255, 200, 20);
   }
-  100%{
-    color:rgb(226, 136, 0);
+  100% {
+    color: rgb(226, 136, 0);
     fill: rgb(226, 136, 0);
   }
 }
 @keyframes newAnim {
- 0%, 100% {
-        color: #ff4d4d; 
-        fill: #ff4d4d; 
-    }
-    16% {
-        color: #ff9a4d; 
-        fill: #ff9a4d;
-    }
-    33% {
-        color: #ffff4d; 
-        fill: #ffff4d;
-    }
-    50% {
-        color: #4dff4d; 
-        fill: #4dff4d;
-    }
-    66% {
-        color: #4d4dff;
-        fill: #4d4dff;
-    }
-    83% {
-        color: #9a4dff; 
-        fill: #9a4dff;
-    }
+  0%,
+  100% {
+    color: #ff4d4d;
+    fill: #ff4d4d;
+  }
+  16% {
+    color: #ff9a4d;
+    fill: #ff9a4d;
+  }
+  33% {
+    color: #ffff4d;
+    fill: #ffff4d;
+  }
+  50% {
+    color: #4dff4d;
+    fill: #4dff4d;
+  }
+  66% {
+    color: #4d4dff;
+    fill: #4d4dff;
+  }
+  83% {
+    color: #9a4dff;
+    fill: #9a4dff;
+  }
 }
 .projStatus.statusNew p {
-  color: rgb(126, 139, 255) ; 
-  animation: newAnim 3s  infinite ;
+  color: rgb(126, 139, 255);
+  animation: newAnim 3s infinite;
 }
 .projStatus.statusNew svg path {
   fill: rgb(126, 139, 255);
-  animation: newAnim 3s  infinite ;
+  animation: newAnim 3s infinite;
 }
 
 .project .projInfo {
@@ -637,7 +638,6 @@ html {
 }
 .sec {
   opacity: 1;
-  
 }
 
 .beta {
@@ -844,12 +844,12 @@ header .content {
   outline: none;
   background: linear-gradient(to right, #20b3c4, #3388b9);
   border: 0px;
-  
+
   animation: lightMove 2500ms normal infinite;
   border-radius: 10px;
 }
 
-.gtemplate{
+.gtemplate {
   display: none !important;
 }
 .timeline p {
@@ -860,7 +860,7 @@ header .content {
   color: var(--textColor);
   text-decoration: none;
 }
-a.nonDecoration{
+a.nonDecoration {
   text-decoration: none;
 }
 .fic button:hover {
@@ -1206,10 +1206,10 @@ underLineEff:hover + .hiddenFaq div {
   opacity: 1;
 }
 
-#chatbot{
+#chatbot {
   --chatbot-height: 400px;
   --altura-visivel: 50px;
-  
+
   position: fixed;
   display: grid;
   grid-template-rows: var(--altura-visivel) 1fr 40px;
@@ -1226,7 +1226,7 @@ underLineEff:hover + .hiddenFaq div {
 
   box-shadow: 0px 0px 7px 5px rgba(0, 0, 0, 0.164);
 }
-#chatbot .topo{
+#chatbot .topo {
   background: var(--baseGradient);
   display: flex;
   align-items: center;
@@ -1235,91 +1235,150 @@ underLineEff:hover + .hiddenFaq div {
   color: white;
   cursor: pointer;
 }
-#chatbot.cbotInative{
+#chatbot.cbotInative {
   bottom: calc((var(--chatbot-height) * -1) + var(--altura-visivel));
 }
-#chatbot #cbotChat{
+#chatbot #cbotChat {
   background-color: var(--chatBotColor);
   position: relative;
 }
 
-#cbotChat{
+#cbotChat {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
   padding: 15px;
-  margin:2px 0px 0px 0px;
+  margin: 2px 0px 0px 0px;
   gap: 13px;
-  
+  position: relative;
 }
 
-@keyframes loadingMsg{
-  0%{
-  
-    scale: 1.0;
+#cbotChat.loadingAssets::before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.445);
+  left: 50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+}
+@keyframes playingBall {
+  0%,100%{
+    transform: translate(0 , 0);
+    width: 20px;
+    height: 20px;
   }
   20%{
-    scale:1;
+    transform: translateX(50px);
+    width: 23px;
+    height: 23px;
+  }
+  40%{
+    transform: translateX(0px);
+    width: 20px;
+    height: 20px;
+  }
+  60%{
+    transform: translateX(-50px);
+    width: 23px;
+    height: 23px;
+  }
+  80%{
+    transform: translateX(0px);
+    width: 20px;
+    height: 20px;
+  }
+}
+#cbotChat.loadingAssets::after{
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: rgb(0, 255, 157);
+  border-radius: 50%;
+  left: 50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+  z-index: 1;
+  animation: playingBall 3s infinite;
+}
+
+@keyframes loadingMsg {
+  0% {
+    scale: 1;
+  }
+  20% {
+    scale: 1;
     transform: rotate(90deg);
 
     background-color: rgb(0, 255, 255);
   }
-  40%{
+  40% {
     transform: rotate(180deg);
     background-color: rgb(163, 255, 88);
   }
-  60%{
+  60% {
     transform: rotate(270deg);
     background-color: rgb(255, 88, 88);
   }
- 80%{
-    background:var(--botMessageBGColor);
+  80% {
+    background: var(--botMessageBGColor);
     transform: rotate(360deg);
- }
- 100%{
-  background:var(--botMessageBGColor);
+  }
+  100% {
+    background: var(--botMessageBGColor);
     transform: rotate(360deg);
- }
-  
+  }
 }
 
 @keyframes piscar {
-  0%,34%,68%,100%{
+  0%,
+  34%,
+  68%,
+  100% {
     filter: brightness(1);
-  }  
-  17%,51%,75%{
+  }
+  17%,
+  51%,
+  75% {
     filter: brightness(1.5);
   }
-
 }
 
-#cbotChat.botTyping::after{
+#cbotChat.botTyping::after {
   content: "-";
   color: transparent;
-  background:var(--botMessageBGColor);
+  background: var(--botMessageBGColor);
   width: 16px;
   height: 16px;
   border-radius: 3px;
   animation: loadingMsg 4s infinite;
-  
 }
-#cbotChat .botMessage{
+#cbotChat .botMessage .message ul {
+  padding-inline-start: 20px;
+  margin: 7px 0px 7px 0px;
+}
+#cbotChat .botMessage {
   width: max-content;
-  overflow-wrap:break-word;
+  overflow-wrap: break-word;
   font-size: 14px;
   max-width: 80%;
-  text-align:left;
+  text-align: left;
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
-#cbotChat .botMessage .message{
+#cbotChat .botMessage .message {
   background-color: var(--botMessageBGColor);
-   padding: 5px 10px 5px 10px;
+  padding: 5px 10px 5px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
   font-size: 13px;
   border-radius: 15px;
 }
-#cbotChat .botMessage .messageDate{
+#cbotChat .botMessage .messageDate {
   margin-left: 13px;
   font-size: 12px;
 }
@@ -1331,131 +1390,127 @@ underLineEff:hover + .hiddenFaq div {
   color: var(--textColor2);
 }
 
-#cbotChat #errorHistoryMessage p{
+#cbotChat #errorHistoryMessage p {
   display: none;
 }
-#cbotChat #errorHistoryMessage p.active{
-  display:block;
+#cbotChat #errorHistoryMessage p.active {
+  display: block;
 }
-
 
 #cbotChat .botMessage .commands {
   max-width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  
+
   gap: 5px;
- 
 }
 
-#cbotChat .botMessage .commands .goToSecM{
+#cbotChat .botMessage .commands .goToSecM {
   display: flex;
   flex-direction: column;
 }
-#cbotChat .botMessage .commands .goToSecM h1{
+#cbotChat .botMessage .commands .goToSecM h1 {
   font-size: 12px;
   font-weight: 400;
-  color:var(--textColor);
+  color: var(--textColor);
 }
-#cbotChat .botMessage .commands .goToSecM p{
+#cbotChat .botMessage .commands .goToSecM p {
   font-size: 10px;
   font-weight: 300;
-  color:var(--textColor2);
-  cursor:pointer;
+  color: var(--textColor2);
+  cursor: pointer;
 }
 
-#cbotChat .botMessage .commands:not(:has(> :not(.gtemplate))){
-  display: none !important; 
+#cbotChat .botMessage .commands:not(:has(> :not(.gtemplate))) {
+  display: none !important;
 }
-#cbotChat .botMessage .commands::-webkit-scrollbar{
+#cbotChat .botMessage .commands::-webkit-scrollbar {
   height: 5px;
   background: rgba(185, 185, 185, 0.144);
 }
 
-#cbotChat .botMessage .commands .githubB{
+#cbotChat .botMessage .commands .githubB {
   border: 0;
   width: max-content;
 }
 
-#cbotChat .botMessage .commands .contactMeB{
+#cbotChat .botMessage .commands .contactMeB {
   width: 100%;
 }
-#cbotChat .botMessage .commands .contactMeB button{
+#cbotChat .botMessage .commands .contactMeB button {
   width: 100%;
   justify-content: center;
   font-size: 12px;
-  background:var(--baseGradient);
+  background: var(--baseGradient);
   color: white;
   position: relative;
   box-shadow: 0 0 15px 3px #1eadff80;
 }
 
-#cbotChat .botMessage .commands .contactMeB button svg{
+#cbotChat .botMessage .commands .contactMeB button svg {
   width: 14px;
   height: 14px;
   animation: pulsante 2s infinite;
 }
 @keyframes pulsante {
-  0%,100%{
-    scale: 1.0;
+  0%,
+  100% {
+    scale: 1;
   }
-  50%{
+  50% {
     scale: 1.3;
   }
 }
 
-#cbotChat .botMessage .commands .contactMeB button svg path{
+#cbotChat .botMessage .commands .contactMeB button svg path {
   fill: white;
 }
 
-#cbotChat .botMessage .commands a button{
+#cbotChat .botMessage .commands a button {
   width: max-content;
   border: 0;
   padding: 3px 8px 3px 5px;
-   font-family: 'poppins';
+  font-family: "poppins";
   border-radius: 20px;
   display: flex;
   font-weight: 600;
   font-size: 12px;
   flex-direction: row;
   align-items: center;
-  gap:3px;
+  gap: 3px;
 }
-#cbotChat .botMessage .commands .githubB button{
-  
+#cbotChat .botMessage .commands .githubB button {
   background-color: var(--gitHubButtonBackground);
   color: white;
-
 }
-#cbotChat .botMessage .commands a button:hover{
+#cbotChat .botMessage .commands a button:hover {
   filter: brightness(0.5);
-  scale: 1.0;
-  transform: translate(0,0);
+  scale: 1;
+  transform: translate(0, 0);
 }
 #cbotChat .botMessage .commands a button img,
-#cbotChat .botMessage .commands a button svg
-{
+#cbotChat .botMessage .commands a button svg {
   width: 12px;
   height: 12px;
 }
-#cbotChat .botMessage .commands a button svg path{
-  fill:black;
+#cbotChat .botMessage .commands a button svg path {
+  fill: black;
 }
-#cbotChat .botMessage .commands .accessB button{
-  color:black;
+#cbotChat .botMessage .commands .accessB button {
+  color: black;
 }
-#cbotChat .userMessage{
-background-color: var(--userMessageBGColor);
-  align-self:flex-end;
+#cbotChat .userMessage {
+  background-color: var(--userMessageBGColor);
+  align-self: flex-end;
   width: max-content;
   padding: 5px 10px 5px 10px;
   border-radius: 15px;
   font-size: 14px;
   max-width: 80%;
-  text-align:left;
+  text-align: left;
 }
-#chatbot #chatInput{
+#chatbot #chatInput {
   background-color: var(--chatInputColor);
   box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.308);
   display: flex;
@@ -1463,50 +1518,58 @@ background-color: var(--userMessageBGColor);
   justify-content: center;
   gap: 10px;
 }
-#chatbot #chatInput svg{
-  --cbotSvgSize:20px;
+#chatbot #chatInput svg {
+  --cbotSvgSize: 20px;
   padding: 5px;
   width: var(--cbotSvgSize);
   height: var(--cbotSvgSize);
   border-radius: 50%;
 }
-#chatbot #chatInput .sendButton{
+#chatbot #chatInput .sendButton {
   background-color: rgb(143, 143, 143);
 }
-#chatbot #chatInput svg path{
+#chatbot #chatInput
+#chatbot #chatInput svg path {
   fill: white;
 }
-#chatbot #chatInput #userPrompt{
+#chatbot #chatInput #userPrompt {
   background-color: rgba(128, 128, 128, 0.452);
   border-radius: 20px;
-  padding: 2px 10px 2px 10px; 
+  padding: 2px 10px 2px 10px;
   height: 50%;
-  overflow-y: auto; 
+  overflow-y: auto;
   resize: none;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   outline: none;
   width: 80%;
   color: var(--textColor);
 }
-#chatbot #chatInput #userPrompt::-webkit-scrollbar-thumb{
-  background: rgb(153, 153, 153);
-  cursor:default;
+#chatbot #chatInput #aiSendButton{
+  transition: 300ms;
 }
-#chatbot #chatInput #userPrompt:hover{
-
+#chatbot #chatInput #userPrompt[disabled] + #aiSendButton{
+  background-color: rgb(31, 31, 31);
+}
+#chatbot #chatInput #userPrompt:not([disabled]) + #aiSendButton:hover{
+  background-color: rgb(47, 255, 57);
+}
+#chatbot #chatInput #userPrompt::-webkit-scrollbar-thumb {
+  background: rgb(153, 153, 153);
+  cursor: default;
+}
+#chatbot #chatInput #userPrompt:hover {
 }
 
 @media (max-width: 1052px) {
-  #chatbot{
-    --chatbot-height:600px;
+  #chatbot {
+    --chatbot-height: 600px;
     right: unset;
     left: 50%;
     transform: translateX(-50%);
-    width: min(450px,100%);
-    grid-template-columns: min(450px,100%); 
+    width: min(450px, 100%);
+    grid-template-columns: min(450px, 100%);
   }
-  #chatbot #chatInput{
-    
+  #chatbot #chatInput {
   }
   .baseSts.project {
     display: flex;
@@ -1516,11 +1579,10 @@ background-color: var(--userMessageBGColor);
     gap: 9px;
   }
   .baseSts.project .projInfo .projContent {
-   
     flex-direction: column;
     display: flex;
   }
-  .baseSts.project .projInfo .projContent .projheader{
+  .baseSts.project .projInfo .projContent .projheader {
     margin-bottom: 10px;
   }
   .projPopup .content .infos {
@@ -1596,7 +1658,6 @@ background-color: var(--userMessageBGColor);
   }
   .baseSts h1 {
     text-align: center;
- 
   }
   .content {
   }
@@ -1614,7 +1675,7 @@ background-color: var(--userMessageBGColor);
   .topList {
     flex-direction: column;
   }
-  .projTitle{
+  .projTitle {
     margin: 0;
   }
 }

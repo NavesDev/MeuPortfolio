@@ -2,11 +2,13 @@ const chatbot = document.getElementById("chatbot")
 const chatElement = chatbot.querySelector("#cbotChat")
 const header = chatbot.querySelector(".topo")
 const gitHubPrefix = "https://github.com/NavesDev"
+const nvdevApi = "https://navesdev-api.vercel.app/"
 const input = chatbot.querySelector("#chatInput")
-
+let loadingAssets = false
 class userPreferences{
     canRedirect = true
     firstRedirect = true
+
     constructor(storageKey = "aiPreferences"){
         let storedPreferences = localStorage.getItem(storageKey)
         this.storageKey = storageKey
@@ -126,7 +128,7 @@ const main = async()=>{
 let inprocess = false
 async function sendMessage(event){
     promptEl = input.querySelector("#userPrompt")
-    if(!inprocess && promptEl.value.length>=1){
+    if(!inprocess && promptEl.value.length>=1 && !loadingAssets){
         chatElement.classList.add("botTyping")
         inprocess = true
         mprompt = promptEl.value
@@ -171,8 +173,32 @@ function getCookie(name){
     }
     return finded;
 }
+
+
+function addCooldown(cdkey,time=60){
+    document.cookie = `cdChatBot-${cdkey}=on; max-age=${time}; path=/`
+}
+
+function inCooldown(cdkey){
+    if(getCookie(`cdChatBot-${cdkey}`)){
+        return true;
+    } else {
+        return false;
+    }
+}
+async function loadAssets() {
+    loadingAssets = true
+    chatElement.classList.add("loadingAssets")
+    await fetch(nvdevApi + "camisAI/loadAssets")
+    chatElement.classList.remove("loadingAssets")
+    loadingAssets = false
+    console.log("assetsLoaded")
+}
 header.addEventListener("click",()=>{
     chatbot.classList.toggle("cbotInative")
-    firstclick = true
+    if(!inCooldown("assetsLoaded")){
+       loadAssets()
+       addCooldown("assetsLoaded",3600) 
+    }
 })
 

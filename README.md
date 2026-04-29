@@ -1,4 +1,7 @@
+<div align="center">
+
 DEPRECEATED
+</div>
 
 <div align="center">
   <a href="#versão-em-português-pt-br"><strong>PT-BR</strong></a>

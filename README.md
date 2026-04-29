@@ -1,3 +1,5 @@
+DEPRECEATED
+
 <div align="center">
   <a href="#versão-em-português-pt-br"><strong>PT-BR</strong></a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
